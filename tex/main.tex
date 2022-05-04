@@ -1,3 +1,41 @@
+\documentclass[a4paper, UTF8]{ctexart}
+\usepackage[top=1.5cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+\linespread{1.2}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[cache=false]{minted}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{amssymb}
+
+\title{计算几何入门}
+\author{Tony Yin}
+\date{\today}
+
+\fancyhead{} % 删除所有页眉
+\begin{document}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemindent}{1em}
+}
+
+\songti
+\maketitle
+\pagestyle{plain}
+\captionsetup[figure]{labelformat={default},labelsep=period}
+
+
+\section{向量}
+
 【标题】浅析复杂动态规划模型及其优化
 
 【摘要】本文总结了一类以集合信息为状态、状态总数为指数级的动态规划的状态设计方法，即状态压缩法与一类有关于数位的计数类动态规划问题，即数位动态规划。对于一些时间复杂度在指数级上大于空间复杂度的动态规划，本文介绍了单调队列优化，斜率优化，四边形不等式优化及CDQ分治优化四种优化方式，可以在较大程度上使时间复杂度靠近空间复杂度。
@@ -33,6 +71,7 @@ DP 的状态设计进行本质优化往往具有局限性，无法系统整理�
 在二进制下对数据的处理和计算与数学中常用的加减乘除和逻辑运算略有不同，对整数在内存中的二进制位进行操作，就是位运算。下面是对几类位运算的定义解释和约定。
 
 \begin{itemize}
+\tightlist
 \item
   与（\texttt{\&}）：\(A\) 和 \(B\) 的按位与运算中，对 \(A\) 和 \(B\)
   二进制下的每一位的值进行数学中的逻辑与运算，得到结果中对应位的值。
@@ -198,35 +237,7 @@ Ans=\sum_{S\in[0,2^n)}f[n][k][S]
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include}\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\DataTypeTok{long} \DataTypeTok{long}\NormalTok{ n}\OperatorTok{,}\NormalTok{k}\OperatorTok{,}\NormalTok{f}\OperatorTok{[}\DecValTok{15}\OperatorTok{][}\DecValTok{105}\OperatorTok{][(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\DecValTok{9}\OperatorTok{)];}
-\PreprocessorTok{\#define pc }\FunctionTok{\_\_builtin\_popcount}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{n}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{k}\OperatorTok{;}
-\NormalTok{    f}\OperatorTok{[}\DecValTok{0}\OperatorTok{][}\DecValTok{0}\OperatorTok{][}\DecValTok{0}\OperatorTok{]=}\DecValTok{1}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ S1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{S1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{n}\OperatorTok{);}\NormalTok{S1}\OperatorTok{++)\{}
-            \ControlFlowTok{if}\OperatorTok{((}\NormalTok{S1}\OperatorTok{\&(}\NormalTok{S1}\OperatorTok{\textless{}\textless{}}\DecValTok{1}\OperatorTok{))==}\DecValTok{0}\OperatorTok{)\{}
-                \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ S2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{S2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{n}\OperatorTok{);}\NormalTok{S2}\OperatorTok{++)\{}
-                    \ControlFlowTok{if}\OperatorTok{(((}\NormalTok{S2}\OperatorTok{\&(}\NormalTok{S2}\OperatorTok{\textless{}\textless{}}\DecValTok{1}\OperatorTok{))==}\DecValTok{0}\OperatorTok{)\&\&(((}\NormalTok{S1}\OperatorTok{\&}\NormalTok{S2}\OperatorTok{)||(}\NormalTok{S1}\OperatorTok{\&(}\NormalTok{S2}\OperatorTok{\textless{}\textless{}}\DecValTok{1}\OperatorTok{))||(}\NormalTok{S1}\OperatorTok{\&(}\NormalTok{S2}\OperatorTok{\textgreater{}\textgreater{}}\DecValTok{1}\OperatorTok{)))==}\DecValTok{0}\OperatorTok{))\{}
-                        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ j}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textless{}=}\NormalTok{k}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)\{}
-\NormalTok{                            f}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{+}\NormalTok{pc}\OperatorTok{(}\NormalTok{S2}\OperatorTok{)][}\NormalTok{S2}\OperatorTok{]+=}\NormalTok{f}\OperatorTok{[}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{][}\NormalTok{j}\OperatorTok{][}\NormalTok{S1}\OperatorTok{];}
-                        \OperatorTok{\}}
-                    \OperatorTok{\}}
-                \OperatorTok{\}}
-            \OperatorTok{\}}
-        \OperatorTok{\}}
-    \OperatorTok{\}}
-    \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ans}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ S}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{S}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{n}\OperatorTok{);}\NormalTok{S}\OperatorTok{++)}\NormalTok{ans}\OperatorTok{+=}\NormalTok{f}\OperatorTok{[}\NormalTok{n}\OperatorTok{][}\NormalTok{k}\OperatorTok{][}\NormalTok{S}\OperatorTok{];}
-\NormalTok{    cout}\OperatorTok{\textless{}\textless{}}\NormalTok{ans}\OperatorTok{\textless{}\textless{}}\NormalTok{endl}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+1.cpp
 
 \subsection{应用实例二}
 
@@ -260,11 +271,11 @@ Ans=\sum_{S\in[0,2^n)}f[n][k][S]
 个质因数进行状态压缩和转移，因为这样时空复杂度至少是
 \(\mathcal{O}(2^{95})\) 的，远超一般计算机算力。
 
-但可以发现对于任意 \(x\in[2,500]\)，\(x\) 分解质因数后包含的 \(\gt19\)
+但可以发现对于任意 \(x\in[2,500]\)，\(x\) 分解质因数后包含的 \(> 19\)
 的质因子不会超过 \(1\) 个，\(\le19\) 的质因数仅 \(8\)
 个，可以状态压缩。而我们只关注 \(\Omega\)
 中每个数分解质因数后的质因子集合，因此一个数 \(i\) 可以被表示为二元组
-\((p_i,S_i)\)，其中 \(p_i\) 表示 \(i\) 分解质因数后 \(\gt19\)
+\((p_i,S_i)\)，其中 \(p_i\) 表示 \(i\) 分解质因数后 \(> 19\)
 的质因子，没有则为 \(1\)；\(S_i\) 表示 \(i\) 分解质因数后包含的
 \(\le19\) 的质因子的集合，\(S_i\) 共 \(8\) 位，第 \(x\) 位为 \(1\)
 则表示从小到大第 \(x+1\) 个质数是 \(i\) 的因子，反之则不是。
@@ -274,7 +285,7 @@ Ans=\sum_{S\in[0,2^n)}f[n][k][S]
 集合中的所有元素二元组第二位按位或后，\(B\) 集合对应值与之进行按位与应为
 \(0\)。
 
-因此可以对整体设计状态，对 \(p_i=1\) 的组合 \(p_i\gt1\)
+因此可以对整体设计状态，对 \(p_i=1\) 的组合 \(p_i > 1\)
 的组分别进行转移。
 
 设 \(f[a][b]\) 表示 \(A\) 集合中所有元素第二位按位或的值为 \(a\)，\(B\)
@@ -305,83 +316,13 @@ Ans=\sum_{S\in[0,2^n)}f[n][k][S]
 \end{itemize}
 
 最后有 \[
-Ans=\sum_{S_1\cap S_2=\varnothing}f[S_1][S_2]
+Ans=\sum_{S_1\cap S_2 = \varnothing}f[S_1][S_2]
 \] 整体时间复杂度为 \(\mathcal{O}(n\cdot 2^{16})\)，空间复杂度为
 \(\mathcal{O}(2^{16})\)。
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\KeywordTok{typedef} \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ll}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ maxn}\OperatorTok{=}\DecValTok{505}\OperatorTok{,}\NormalTok{maxs}\OperatorTok{=(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\DecValTok{8}\OperatorTok{),}\NormalTok{prn}\OperatorTok{=}\DecValTok{8}\OperatorTok{,}\NormalTok{pr}\OperatorTok{[}\NormalTok{prn}\OperatorTok{]=\{}\DecValTok{2}\OperatorTok{,}\DecValTok{3}\OperatorTok{,}\DecValTok{5}\OperatorTok{,}\DecValTok{7}\OperatorTok{,}\DecValTok{11}\OperatorTok{,}\DecValTok{13}\OperatorTok{,}\DecValTok{17}\OperatorTok{,}\DecValTok{19}\OperatorTok{\};}
-\KeywordTok{inline} \DataTypeTok{int}\NormalTok{ read}\OperatorTok{()\{}
-    \DataTypeTok{int}\NormalTok{ x}\OperatorTok{=}\DecValTok{0}\OperatorTok{,}\NormalTok{f}\OperatorTok{=}\DecValTok{1}\OperatorTok{,}\NormalTok{ch}\OperatorTok{=}\NormalTok{getchar}\OperatorTok{();}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{ch}\OperatorTok{\textless{}}\CharTok{\textquotesingle{}0\textquotesingle{}}\OperatorTok{||}\NormalTok{ch}\OperatorTok{\textgreater{}}\CharTok{\textquotesingle{}9\textquotesingle{}}\OperatorTok{)\{}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{ch}\OperatorTok{==}\CharTok{\textquotesingle{}{-}\textquotesingle{}}\OperatorTok{)}\NormalTok{f}\OperatorTok{={-}}\DecValTok{1}\OperatorTok{;}\NormalTok{ch}\OperatorTok{=}\NormalTok{getchar}\OperatorTok{();\}}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{ch}\OperatorTok{\textgreater{}=}\CharTok{\textquotesingle{}0\textquotesingle{}}\OperatorTok{\&\&}\NormalTok{ch}\OperatorTok{\textless{}=}\CharTok{\textquotesingle{}9\textquotesingle{}}\OperatorTok{)\{}\NormalTok{x}\OperatorTok{=(}\NormalTok{x}\OperatorTok{\textless{}\textless{}}\DecValTok{3}\OperatorTok{)+(}\NormalTok{x}\OperatorTok{\textless{}\textless{}}\DecValTok{1}\OperatorTok{)+}\NormalTok{ch}\OperatorTok{{-}}\DecValTok{48}\OperatorTok{;}\NormalTok{ch}\OperatorTok{=}\NormalTok{getchar}\OperatorTok{();\}}
-    \ControlFlowTok{return}\NormalTok{ x}\OperatorTok{*}\NormalTok{f}\OperatorTok{;}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{,}\NormalTok{mod}\OperatorTok{;}
-\KeywordTok{struct}\NormalTok{ num}\OperatorTok{\{}\DataTypeTok{int}\NormalTok{ v}\OperatorTok{,}\NormalTok{key}\OperatorTok{,}\NormalTok{S}\OperatorTok{;\}}\NormalTok{a}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\DataTypeTok{bool}\NormalTok{ cmp}\OperatorTok{(}\NormalTok{num a}\OperatorTok{,}\NormalTok{num b}\OperatorTok{)\{}\ControlFlowTok{return}\NormalTok{ a}\OperatorTok{.}\NormalTok{key}\OperatorTok{==}\NormalTok{b}\OperatorTok{.}\NormalTok{key}\OperatorTok{?}\NormalTok{a}\OperatorTok{.}\NormalTok{v}\OperatorTok{\textless{}}\NormalTok{b}\OperatorTok{.}\NormalTok{v}\OperatorTok{:}\NormalTok{a}\OperatorTok{.}\NormalTok{key}\OperatorTok{\textless{}}\NormalTok{b}\OperatorTok{.}\NormalTok{key}\OperatorTok{;\}}
-\DataTypeTok{int}\NormalTok{ f}\OperatorTok{[}\NormalTok{maxs}\OperatorTok{][}\NormalTok{maxs}\OperatorTok{],}\NormalTok{dp1}\OperatorTok{[}\NormalTok{maxs}\OperatorTok{][}\NormalTok{maxs}\OperatorTok{],}\NormalTok{dp2}\OperatorTok{[}\NormalTok{maxs}\OperatorTok{][}\NormalTok{maxs}\OperatorTok{],}\NormalTok{\_dp1}\OperatorTok{[}\NormalTok{maxs}\OperatorTok{][}\NormalTok{maxs}\OperatorTok{],}\NormalTok{\_dp2}\OperatorTok{[}\NormalTok{maxs}\OperatorTok{][}\NormalTok{maxs}\OperatorTok{];}
-\KeywordTok{inline} \DataTypeTok{void}\NormalTok{ upd}\OperatorTok{(}\DataTypeTok{int} \OperatorTok{\&}\NormalTok{x}\OperatorTok{,}\DataTypeTok{int}\NormalTok{ y}\OperatorTok{)\{}\NormalTok{x}\OperatorTok{=}\NormalTok{x}\OperatorTok{+}\NormalTok{y}\OperatorTok{;}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{x}\OperatorTok{\textgreater{}=}\NormalTok{mod}\OperatorTok{)}\NormalTok{x}\OperatorTok{{-}=}\NormalTok{mod}\OperatorTok{;\}}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    n}\OperatorTok{=}\NormalTok{read}\OperatorTok{();}\NormalTok{mod}\OperatorTok{=}\NormalTok{read}\OperatorTok{();}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-\NormalTok{        a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{v}\OperatorTok{=}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{key}\OperatorTok{=}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{;}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ j}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textless{}}\NormalTok{prn}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)\{}
-            \ControlFlowTok{if}\OperatorTok{(!(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{key}\OperatorTok{\%}\NormalTok{pr}\OperatorTok{[}\NormalTok{j}\OperatorTok{]))}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{S}\OperatorTok{|=(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{j}\OperatorTok{);}
-            \ControlFlowTok{while}\OperatorTok{(!(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{key}\OperatorTok{\%}\NormalTok{pr}\OperatorTok{[}\NormalTok{j}\OperatorTok{]))}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{key}\OperatorTok{/=}\NormalTok{pr}\OperatorTok{[}\NormalTok{j}\OperatorTok{];}
-        \OperatorTok{\}}
-    \OperatorTok{\}}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{n}\OperatorTok{,}\NormalTok{cmp}\OperatorTok{);}
-\NormalTok{    f}\OperatorTok{[}\DecValTok{0}\OperatorTok{][}\DecValTok{0}\OperatorTok{]=}\DecValTok{1}\OperatorTok{;}
-    \DataTypeTok{int}\NormalTok{ st}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{st}\OperatorTok{].}\NormalTok{key}\OperatorTok{==}\DecValTok{1}\OperatorTok{)\{}
-\NormalTok{        memset}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{,}\DecValTok{0}\OperatorTok{,}\KeywordTok{sizeof}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{));}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)\{}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{|}\NormalTok{a}\OperatorTok{[}\NormalTok{st}\OperatorTok{].}\NormalTok{S}\OperatorTok{][}\NormalTok{s2}\OperatorTok{],}\NormalTok{f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{|}\NormalTok{a}\OperatorTok{[}\NormalTok{st}\OperatorTok{].}\NormalTok{S}\OperatorTok{],}\NormalTok{f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-        \OperatorTok{\}}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{],}\NormalTok{\_dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-\NormalTok{        st}\OperatorTok{++;}
-    \OperatorTok{\}}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\NormalTok{st}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{key}\OperatorTok{!=}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{].}\NormalTok{key}\OperatorTok{)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)}
-\NormalTok{            dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]=}\NormalTok{dp2}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]=}\NormalTok{f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{];}
-\NormalTok{        memset}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{,}\DecValTok{0}\OperatorTok{,}\KeywordTok{sizeof}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{));}
-\NormalTok{        memset}\OperatorTok{(}\NormalTok{\_dp2}\OperatorTok{,}\DecValTok{0}\OperatorTok{,}\KeywordTok{sizeof}\OperatorTok{(}\NormalTok{\_dp2}\OperatorTok{));}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)\{}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{\_dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{|}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{S}\OperatorTok{][}\NormalTok{s2}\OperatorTok{],}\NormalTok{dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{\_dp2}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{|}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{S}\OperatorTok{],}\NormalTok{dp2}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-        \OperatorTok{\}}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{],}\NormalTok{\_dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]),}
-\NormalTok{            upd}\OperatorTok{(}\NormalTok{dp2}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{],}\NormalTok{\_dp2}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{key}\OperatorTok{!=}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{].}\NormalTok{key}\OperatorTok{)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)}
-\NormalTok{            f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]=((}\NormalTok{dp1}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]+}\NormalTok{dp2}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{])\%}\NormalTok{mod}\OperatorTok{{-}}\NormalTok{f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]+}\NormalTok{mod}\OperatorTok{)\%}\NormalTok{mod}\OperatorTok{;}
-    \OperatorTok{\}}
-    \DataTypeTok{int}\NormalTok{ ans}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s1}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s1}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s1}\OperatorTok{++)}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ s2}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}\NormalTok{s2}\OperatorTok{\textless{}(}\DecValTok{1}\OperatorTok{\textless{}\textless{}}\NormalTok{prn}\OperatorTok{);}\NormalTok{s2}\OperatorTok{++)}
-        \ControlFlowTok{if}\OperatorTok{((}\NormalTok{s1}\OperatorTok{\&}\NormalTok{s2}\OperatorTok{)==}\DecValTok{0}\OperatorTok{)}\NormalTok{upd}\OperatorTok{(}\NormalTok{ans}\OperatorTok{,}\NormalTok{f}\OperatorTok{[}\NormalTok{s1}\OperatorTok{][}\NormalTok{s2}\OperatorTok{]);}
-\NormalTok{    cout}\OperatorTok{\textless{}\textless{}}\NormalTok{ans}\OperatorTok{\textless{}\textless{}}\CharTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\CharTok{\textquotesingle{}}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+2.cpp
 
 \section{按数位顺序进行的动态规划}
 
@@ -476,38 +417,7 @@ DP。
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ MAXN }\OperatorTok{=} \DecValTok{20}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ a}\OperatorTok{,}\NormalTok{ b}\OperatorTok{,}\NormalTok{ num}\OperatorTok{[}\NormalTok{MAXN}\OperatorTok{];}
-\DataTypeTok{int}\NormalTok{ dp}\OperatorTok{[}\NormalTok{MAXN}\OperatorTok{][}\NormalTok{MAXN}\OperatorTok{];}
-\DataTypeTok{int}\NormalTok{ dfs}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ pos}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ lst}\OperatorTok{,} \DataTypeTok{bool}\NormalTok{ lim}\OperatorTok{,} \DataTypeTok{bool}\NormalTok{ zero}\OperatorTok{)} \OperatorTok{\{}
-    \ControlFlowTok{if}\OperatorTok{(}\NormalTok{pos }\OperatorTok{==} \DecValTok{0}\OperatorTok{)} \ControlFlowTok{return} \DecValTok{1}\OperatorTok{;}
-    \ControlFlowTok{if}\OperatorTok{(!}\NormalTok{lim }\OperatorTok{\&\&} \OperatorTok{!}\NormalTok{zero }\OperatorTok{\&\&}\NormalTok{ dp}\OperatorTok{[}\NormalTok{pos}\OperatorTok{][}\NormalTok{lst}\OperatorTok{]} \OperatorTok{!=} \OperatorTok{{-}}\DecValTok{1}\OperatorTok{)} \ControlFlowTok{return}\NormalTok{ dp}\OperatorTok{[}\NormalTok{pos}\OperatorTok{][}\NormalTok{lst}\OperatorTok{];}
-    \DataTypeTok{int}\NormalTok{ ret }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
-    \DataTypeTok{int}\NormalTok{ mx }\OperatorTok{=}\NormalTok{ lim }\OperatorTok{?}\NormalTok{ num}\OperatorTok{[}\NormalTok{pos}\OperatorTok{]} \OperatorTok{:} \DecValTok{9}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}=}\NormalTok{ mx}\OperatorTok{;}\NormalTok{ i}\OperatorTok{++)} \ControlFlowTok{if}\OperatorTok{(}\NormalTok{abs}\OperatorTok{(}\NormalTok{i }\OperatorTok{{-}}\NormalTok{ lst}\OperatorTok{)} \OperatorTok{\textgreater{}=} \DecValTok{2}\OperatorTok{)}
-\NormalTok{        ret }\OperatorTok{+=}\NormalTok{ dfs}\OperatorTok{(}\NormalTok{pos }\OperatorTok{{-}} \DecValTok{1}\OperatorTok{,} \OperatorTok{(}\NormalTok{zero }\OperatorTok{\&} \OperatorTok{(}\NormalTok{i }\OperatorTok{==} \DecValTok{0}\OperatorTok{))} \OperatorTok{?} \OperatorTok{{-}}\DecValTok{2} \OperatorTok{:}\NormalTok{ i}\OperatorTok{,}
-\NormalTok{                   lim }\OperatorTok{\&} \OperatorTok{(}\NormalTok{i }\OperatorTok{==}\NormalTok{ num}\OperatorTok{[}\NormalTok{pos}\OperatorTok{]),}\NormalTok{ zero }\OperatorTok{\&} \OperatorTok{(}\NormalTok{i }\OperatorTok{==} \DecValTok{0}\OperatorTok{));}
-    \ControlFlowTok{if}\OperatorTok{(!}\NormalTok{lim }\OperatorTok{\&\&} \OperatorTok{!}\NormalTok{zero}\OperatorTok{)}\NormalTok{ dp}\OperatorTok{[}\NormalTok{pos}\OperatorTok{][}\NormalTok{lst}\OperatorTok{]} \OperatorTok{=}\NormalTok{ ret}\OperatorTok{;}
-    \ControlFlowTok{return}\NormalTok{ ret}\OperatorTok{;}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ solve}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ x}\OperatorTok{)} \OperatorTok{\{}
-    \DataTypeTok{int}\NormalTok{ p }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{x}\OperatorTok{)}
-\NormalTok{        num}\OperatorTok{[++}\NormalTok{p}\OperatorTok{]} \OperatorTok{=}\NormalTok{ x }\OperatorTok{\%} \DecValTok{10}\OperatorTok{,}\NormalTok{ x }\OperatorTok{/=} \DecValTok{10}\OperatorTok{;}
-\NormalTok{    memset}\OperatorTok{(}\NormalTok{dp}\OperatorTok{,} \OperatorTok{{-}}\DecValTok{1}\OperatorTok{,} \KeywordTok{sizeof}\OperatorTok{(}\NormalTok{dp}\OperatorTok{));}
-    \ControlFlowTok{return}\NormalTok{ dfs}\OperatorTok{(}\NormalTok{p}\OperatorTok{,} \OperatorTok{{-}}\DecValTok{2}\OperatorTok{,} \DecValTok{1}\OperatorTok{,} \DecValTok{1}\OperatorTok{);}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()} \OperatorTok{\{}
-\NormalTok{    cin }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ a }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ b}\OperatorTok{;}
-\NormalTok{    cout }\OperatorTok{\textless{}\textless{}}\NormalTok{ solve}\OperatorTok{(}\NormalTok{b}\OperatorTok{)} \OperatorTok{{-}}\NormalTok{ solve}\OperatorTok{(}\NormalTok{a }\OperatorTok{{-}} \DecValTok{1}\OperatorTok{)} \OperatorTok{\textless{}\textless{}}\NormalTok{ endl}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+3.cpp
 
 \section{单调队列优化动态规划}
 
@@ -525,10 +435,10 @@ DP。
 使用单调队列，则可做到 \(\mathcal{O}(n)\) 的时间复杂度和空间复杂度。
 
 具体而言，维护二元组 \((a_i,i)\) 使队列中元素满足严格偏序关系
-\(\lt=\{((x_1,y_1),(x_2,y_2))\mid x_1\lt x_2\and y_1\lt y_2\}\)，下标
+\(\le\{((x_1,y_1),(x_2,y_2))\mid x_1 < x_2\and y_1 < y_2\}\)，下标
 \(i\) 从小到大遍历 \([1,n]\) 时，加入元素
 \((a_i,i)\)。若加入元素前队列非空且队尾元素不满足偏序关系，则一直弹出队尾元素直到队列为空或队尾元素满足偏序关系为止。加入元素
-\((a_i,i)\) 后，在队首元素第二维 \(id\) 不满足 \(id\gt i-k\)
+\((a_i,i)\) 后，在队首元素第二维 \(id\) 不满足 \(id > i-k\)
 时弹出队首元素直至满足条件。因为第二维加入时单调递增，第一维在队列中也单调递增，所以队列中最小值在队首。而在弹出队首操作中满足了队列中所有元素均在
 \((i-k,i]\) 中，且先前在队列中且第二维属于 \((i-k,i]\)
 的不会因为队首弹出操作在此之前弹出，因此队首元素 \((a_{h},h)\)
@@ -556,7 +466,7 @@ DP。
 \(i+1,i+2,\dots,i+k\) 颗树。
 
 如果它从一颗高度为 \(h_i\) 的树飞到高度为 \(h_j\) 的树，且
-\(h_i\le h_j\)，那么它的劳累值会 \(+1\)，反之若 \(h_i\gt h_j\)
+\(h_i\le h_j\)，那么它的劳累值会 \(+1\)，反之若 \(h_i > h_j\)
 那么劳累值不变。
 
 有 \(Q\) 次询问，每次询问指定 \(k\)，求这只鸟从第 \(1\) 颗树飞到第 \(n\)
@@ -573,13 +483,13 @@ DP。
 \(0\)。这样直接转移是 \(\mathcal{O}(Qn^2)\) 的，考虑优化。
 
 设 \(m_i=\min_{j\in[\max(1,i-k),i]}\operatorname{dp}[j]\)，不难看出有 \[
-\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j]=m_i}(\operatorname{dp}[j]+[h[j]\le h[i]])\le\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j]\gt m_i}(\operatorname{dp}[j]+[h[j]\le h[i]])
+\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j]=m_i}(\operatorname{dp}[j]+[h[j]\le h[i]])\le\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j] > m_i}(\operatorname{dp}[j]+[h[j]\le h[i]])
 \] 因为 \[
 \text{左式}\le\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j]=m_i}(\operatorname{dp}[j]+1)\le m_i+1
 \]
 
 \[
-\text{右式}\ge\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j]\gt m_i}(\operatorname{dp}[j])\ge m_i+1
+\text{右式}\ge\min_{j\in[\max(1,i-k),i]\and \operatorname{dp}[j] > m_i}(\operatorname{dp}[j])\ge m_i+1
 \]
 
 于是得证。
@@ -595,34 +505,7 @@ DP。
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\KeywordTok{typedef} \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ll}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ maxn}\OperatorTok{=}\FloatTok{1e6}\OperatorTok{+}\DecValTok{5}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{,}\NormalTok{Q}\OperatorTok{,}\NormalTok{k}\OperatorTok{,}\NormalTok{h}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{dp}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\DataTypeTok{int}\NormalTok{ q}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{hd}\OperatorTok{,}\NormalTok{tl}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    ios}\OperatorTok{::}\NormalTok{sync\_with\_stdio}\OperatorTok{(}\DecValTok{0}\OperatorTok{);}
-\NormalTok{    cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{n}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{h}\OperatorTok{[}\NormalTok{i}\OperatorTok{];}
-\NormalTok{    cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{Q}\OperatorTok{;}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{Q}\OperatorTok{{-}{-})\{}
-\NormalTok{        cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{k}\OperatorTok{;}
-\NormalTok{        q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{=}\NormalTok{tl}\OperatorTok{=}\DecValTok{1}\OperatorTok{]=}\DecValTok{1}\OperatorTok{;}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{2}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-            \ControlFlowTok{while}\OperatorTok{(}\NormalTok{hd}\OperatorTok{\textless{}=}\NormalTok{tl}\OperatorTok{\&\&}\NormalTok{i}\OperatorTok{{-}}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]\textgreater{}}\NormalTok{k}\OperatorTok{)}\NormalTok{hd}\OperatorTok{++;}
-\NormalTok{            dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{]=}\NormalTok{dp}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]]+(}\NormalTok{h}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]]\textless{}=}\NormalTok{h}\OperatorTok{[}\NormalTok{i}\OperatorTok{]);}
-            \ControlFlowTok{while}\OperatorTok{(}\NormalTok{hd}\OperatorTok{\textless{}=}\NormalTok{tl}\OperatorTok{\&\&(}\NormalTok{dp}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{tl}\OperatorTok{]]\textgreater{}}\NormalTok{dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{]||(}\NormalTok{dp}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{tl}\OperatorTok{]]==}\NormalTok{dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{]\&\&}\NormalTok{h}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{tl}\OperatorTok{]]\textless{}=}\NormalTok{h}\OperatorTok{[}\NormalTok{i}\OperatorTok{])))}\NormalTok{tl}\OperatorTok{{-}{-};}
-\NormalTok{            q}\OperatorTok{[++}\NormalTok{tl}\OperatorTok{]=}\NormalTok{i}\OperatorTok{;}
-        \OperatorTok{\}}
-\NormalTok{        printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%d\textbackslash{}n}\StringTok{"}\OperatorTok{,}\NormalTok{dp}\OperatorTok{[}\NormalTok{n}\OperatorTok{]);}
-    \OperatorTok{\}}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+4.cpp
 
 \subsection{应用实例二}
 
@@ -677,57 +560,7 @@ dp[i][x_i-x_j]=\max_{j\in[1,i)\and x'\le x_i-x_j}(\operatorname{dp}[j][x'])+p_i
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\KeywordTok{typedef} \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ll}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ maxn}\OperatorTok{=}\FloatTok{1e3}\OperatorTok{+}\DecValTok{5}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{;}
-\KeywordTok{struct}\NormalTok{ node}\OperatorTok{\{}\DataTypeTok{int}\NormalTok{ x}\OperatorTok{,}\NormalTok{w}\OperatorTok{;\}}\NormalTok{a}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\DataTypeTok{bool}\NormalTok{ cmp}\OperatorTok{(}\NormalTok{node a}\OperatorTok{,}\NormalTok{node b}\OperatorTok{)\{}\ControlFlowTok{return}\NormalTok{ a}\OperatorTok{.}\NormalTok{x}\OperatorTok{\textless{}}\NormalTok{b}\OperatorTok{.}\NormalTok{x}\OperatorTok{;\}}
-\KeywordTok{struct}\NormalTok{ Que}\OperatorTok{\{}
-\NormalTok{    node v}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-    \DataTypeTok{int}\NormalTok{ tail}\OperatorTok{,}\NormalTok{head}\OperatorTok{;}
-    \KeywordTok{inline} \DataTypeTok{void}\NormalTok{ push}\OperatorTok{(}\NormalTok{node x}\OperatorTok{)\{}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{tail}\OperatorTok{\&\&}\NormalTok{v}\OperatorTok{[}\NormalTok{tail}\OperatorTok{].}\NormalTok{x}\OperatorTok{==}\NormalTok{x}\OperatorTok{.}\NormalTok{x}\OperatorTok{\&\&}\NormalTok{v}\OperatorTok{[}\NormalTok{tail}\OperatorTok{].}\NormalTok{w}\OperatorTok{\textless{}=}\NormalTok{x}\OperatorTok{.}\NormalTok{w}\OperatorTok{)}\NormalTok{tail}\OperatorTok{{-}{-};}
-        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{x}\OperatorTok{.}\NormalTok{w}\OperatorTok{\textgreater{}}\NormalTok{v}\OperatorTok{[}\NormalTok{tail}\OperatorTok{].}\NormalTok{w}\OperatorTok{||!}\NormalTok{tail}\OperatorTok{)}\NormalTok{v}\OperatorTok{[++}\NormalTok{tail}\OperatorTok{]=}\NormalTok{x}\OperatorTok{;}
-    \OperatorTok{\}}
-    \KeywordTok{inline} \DataTypeTok{void}\NormalTok{ pop}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ x}\OperatorTok{)\{}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{head}\OperatorTok{\textless{}}\NormalTok{tail}\OperatorTok{\&\&}\NormalTok{x}\OperatorTok{\textgreater{}=}\NormalTok{v}\OperatorTok{[}\NormalTok{head}\OperatorTok{+}\DecValTok{1}\OperatorTok{].}\NormalTok{x}\OperatorTok{)}\NormalTok{head}\OperatorTok{++;}
-    \OperatorTok{\}}
-    \KeywordTok{inline} \DataTypeTok{void}\NormalTok{ clear}\OperatorTok{()\{}
-\NormalTok{        tail}\OperatorTok{=}\NormalTok{head}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
-    \OperatorTok{\}}
-\OperatorTok{\}}\NormalTok{s}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    ios}\OperatorTok{::}\NormalTok{sync\_with\_stdio}\OperatorTok{(}\DecValTok{0}\OperatorTok{);}
-\NormalTok{    cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{n}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{x}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{w}\OperatorTok{;}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\DecValTok{1}\OperatorTok{+}\NormalTok{n}\OperatorTok{,}\NormalTok{cmp}\OperatorTok{);}
-    \DataTypeTok{int}\NormalTok{ ans}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-\NormalTok{        s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{push}\OperatorTok{((}\NormalTok{node}\OperatorTok{)\{{-}}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{w}\OperatorTok{\});}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ j}\OperatorTok{=}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textgreater{}=}\DecValTok{1}\OperatorTok{;}\NormalTok{j}\OperatorTok{{-}{-})\{}
-\NormalTok{            s}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{pop}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{x}\OperatorTok{{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{x}\OperatorTok{);}
-\NormalTok{            s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{push}\OperatorTok{((}\NormalTok{node}\OperatorTok{)\{}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{x}\OperatorTok{{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{x}\OperatorTok{,}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{v}\OperatorTok{[}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{head}\OperatorTok{].}\NormalTok{w}\OperatorTok{+}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{w}\OperatorTok{\});}
-        \OperatorTok{\}}
-\NormalTok{        ans}\OperatorTok{=}\NormalTok{max}\OperatorTok{(}\NormalTok{ans}\OperatorTok{,}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{v}\OperatorTok{[}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{tail}\OperatorTok{].}\NormalTok{w}\OperatorTok{);}
-    \OperatorTok{\}}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{clear}\OperatorTok{();}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textgreater{}=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{{-}{-})\{}
-\NormalTok{        s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{push}\OperatorTok{((}\NormalTok{node}\OperatorTok{)\{{-}}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{w}\OperatorTok{\});}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ j}\OperatorTok{=}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)\{}
-\NormalTok{            s}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{pop}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{x}\OperatorTok{{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{x}\OperatorTok{);}
-\NormalTok{            s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{push}\OperatorTok{((}\NormalTok{node}\OperatorTok{)\{}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{x}\OperatorTok{{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{x}\OperatorTok{,}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{v}\OperatorTok{[}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{head}\OperatorTok{].}\NormalTok{w}\OperatorTok{+}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{w}\OperatorTok{\});}
-        \OperatorTok{\}}
-\NormalTok{        ans}\OperatorTok{=}\NormalTok{max}\OperatorTok{(}\NormalTok{ans}\OperatorTok{,}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{v}\OperatorTok{[}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{tail}\OperatorTok{].}\NormalTok{w}\OperatorTok{);}
-    \OperatorTok{\}}
-\NormalTok{    cout}\OperatorTok{\textless{}\textless{}}\NormalTok{ans}\OperatorTok{\textless{}\textless{}}\CharTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\CharTok{\textquotesingle{}}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+5.cpp
 
 \section{斜率优化动态规划}
 
@@ -797,7 +630,6 @@ b = f_i-{s_i}^2
 
 注意到直线的斜率不变，相当于平移直线 \(y=kx\) ，直到其经过图中的一个点。
 
-\includegraphics{https://cdn.tonyyin.top/2021/02/25/39c3696467e33.png}
 
 于是可以在转移的同时维护 \((x_i,y_i)\)
 构成的凸包，利用单调性二分得到时间复杂度为 \(\mathcal{O}(n\log n)\)
@@ -807,41 +639,7 @@ b = f_i-{s_i}^2
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\PreprocessorTok{\#define int }\DataTypeTok{long}\PreprocessorTok{ }\DataTypeTok{long}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ MAXN }\OperatorTok{=} \FloatTok{5e4} \OperatorTok{+} \DecValTok{10}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{,}\NormalTok{ L}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ c}\OperatorTok{[}\NormalTok{MAXN}\OperatorTok{],}\NormalTok{ s}\OperatorTok{[}\NormalTok{MAXN}\OperatorTok{],}\NormalTok{ f}\OperatorTok{[}\NormalTok{MAXN}\OperatorTok{];}
-\DataTypeTok{double}\NormalTok{ slope}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ j}\OperatorTok{)} \OperatorTok{\{}
-    \ControlFlowTok{return} \OperatorTok{((}\NormalTok{f}\OperatorTok{[}\NormalTok{j}\OperatorTok{]+(}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{]+}\NormalTok{L}\OperatorTok{)*(}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{]+}\NormalTok{L}\OperatorTok{))} \OperatorTok{{-}} \OperatorTok{(}\NormalTok{f}\OperatorTok{[}\NormalTok{i}\OperatorTok{]+(}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]+}\NormalTok{L}\OperatorTok{)*(}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]+}\NormalTok{L}\OperatorTok{)))} \OperatorTok{/} \OperatorTok{(}\DataTypeTok{double}\OperatorTok{)(}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{]} \OperatorTok{{-}}\NormalTok{ s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]);}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ head}\OperatorTok{,}\NormalTok{ tail}\OperatorTok{,}\NormalTok{ q}\OperatorTok{[}\NormalTok{MAXN}\OperatorTok{];}
-\DataTypeTok{signed}\NormalTok{ main}\OperatorTok{()} \OperatorTok{\{}
-\NormalTok{    scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%lld\%lld}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{n}\OperatorTok{,} \OperatorTok{\&}\NormalTok{L}\OperatorTok{);}
-\NormalTok{    L }\OperatorTok{+=} \DecValTok{1}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{1}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}=}\NormalTok{ n}\OperatorTok{;}\NormalTok{ i}\OperatorTok{++)} \OperatorTok{\{}
-\NormalTok{        scanf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%lld}\StringTok{"}\OperatorTok{,} \OperatorTok{\&}\NormalTok{c}\OperatorTok{[}\NormalTok{i}\OperatorTok{]);}
-\NormalTok{        s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]} \OperatorTok{=}\NormalTok{ s}\OperatorTok{[}\NormalTok{i }\OperatorTok{{-}} \DecValTok{1}\OperatorTok{]} \OperatorTok{+}\NormalTok{ c}\OperatorTok{[}\NormalTok{i}\OperatorTok{]} \OperatorTok{+} \DecValTok{1}\OperatorTok{;}
-    \OperatorTok{\}}
-\NormalTok{    head }\OperatorTok{=}\NormalTok{ tail }\OperatorTok{=} \DecValTok{1}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i }\OperatorTok{=} \DecValTok{1}\OperatorTok{;}\NormalTok{ i }\OperatorTok{\textless{}=}\NormalTok{ n}\OperatorTok{;}\NormalTok{ i}\OperatorTok{++)} \OperatorTok{\{}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{head }\OperatorTok{\textless{}}\NormalTok{ tail }\OperatorTok{\&\&}\NormalTok{ slope}\OperatorTok{(}\NormalTok{q}\OperatorTok{[}\NormalTok{head}\OperatorTok{],}\NormalTok{ q}\OperatorTok{[}\NormalTok{head }\OperatorTok{+} \DecValTok{1}\OperatorTok{])} \OperatorTok{\textless{}=} \DecValTok{2} \OperatorTok{*}\NormalTok{ s}\OperatorTok{[}\NormalTok{i}\OperatorTok{])} \OperatorTok{\{}
-\NormalTok{            head}\OperatorTok{++;}
-        \OperatorTok{\}}
-\NormalTok{        f}\OperatorTok{[}\NormalTok{i}\OperatorTok{]} \OperatorTok{=}\NormalTok{ f}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{head}\OperatorTok{]]} \OperatorTok{+} \OperatorTok{(}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]} \OperatorTok{{-}}\NormalTok{ s}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{head}\OperatorTok{]]} \OperatorTok{{-}}\NormalTok{ L}\OperatorTok{)} \OperatorTok{*} \OperatorTok{(}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]} \OperatorTok{{-}}\NormalTok{ s}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{head}\OperatorTok{]]} \OperatorTok{{-}}\NormalTok{ L}\OperatorTok{);}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{head }\OperatorTok{\textless{}}\NormalTok{ tail }\OperatorTok{\&\&}\NormalTok{ slope}\OperatorTok{(}\NormalTok{q}\OperatorTok{[}\NormalTok{tail }\OperatorTok{{-}} \DecValTok{1}\OperatorTok{],}\NormalTok{ q}\OperatorTok{[}\NormalTok{tail}\OperatorTok{])} \OperatorTok{\textgreater{}=}\NormalTok{ slope}\OperatorTok{(}\NormalTok{q}\OperatorTok{[}\NormalTok{tail}\OperatorTok{],}\NormalTok{ i}\OperatorTok{))} \OperatorTok{\{}
-\NormalTok{            tail}\OperatorTok{{-}{-};}
-        \OperatorTok{\}}
-\NormalTok{        q}\OperatorTok{[++}\NormalTok{tail}\OperatorTok{]} \OperatorTok{=}\NormalTok{ i}\OperatorTok{;}
-    \OperatorTok{\}}
-\NormalTok{    printf}\OperatorTok{(}\StringTok{"}\SpecialCharTok{\%lld}\StringTok{"}\OperatorTok{,}\NormalTok{ f}\OperatorTok{[}\NormalTok{n}\OperatorTok{]);}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+6.cpp
 
 \section{四边形不等式优化动态规划}
 
@@ -853,13 +651,13 @@ w(l_1,r_1)+w(l_2,r_2)\ge w(l_1,r_2)+w(l_2,r_1)\tag{1}
 \] 则称 \(w\) 满足四边形不等式。四边形不等式有一个经典的等价形式： \[
 w(l,r+1)+w(l+1,r)\ge w(l,r)+w(l+1,r+1)\tag{2}
 \] 其中
-\(l\lt r\)。由（1）得到（2）较为显然，由（2）推出（1）可以通过数学归纳法证得。
+\(l < r\)。由（1）得到（2）较为显然，由（2）推出（1）可以通过数学归纳法证得。
 
-假设对于 \(l+x\lt r\) 有 \[
+假设对于 \(l+x < r\) 有 \[
 w(l,r+1)+w(l+x,r)\ge w(l,r)+w(l+x,r+1)\\
 \] 在 \(x=1\) 时此式为（1）。
 
-对于 \(l+x+1\lt r\)，根据（2）有 \[
+对于 \(l+x+1 < r\)，根据（2）有 \[
 w(l+x,r+1)+w(l+x+1,r)\ge w(l+x,r)+w(l+x+1,r+1)\\
 \] 两式相加可得 \[
 w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
@@ -868,7 +666,7 @@ w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
 \subsection{四边形不等式对一维 DP 的优化}
 
 在优化一维 DP 时，DP 的形式往往为
-\(f[i]=\min\limits_{0\le j\lt i}\{f[j]+w(j,i)\}\)。不妨设令 \(f[i]\)
+\(f[i]=\min\limits_{0\le j < i}\{f[j]+w(j,i)\}\)。不妨设令 \(f[i]\)
 取得最小值的 \(j\) 为 \(d[i]\)，那么若 \(w\) 满足四边形不等式，则 \(d\)
 单调不减，称 \(f\) 具有决策单调性。利用此性质可以使时间复杂度为
 \(\mathcal{O}(n^2)\) 的计算简化为
@@ -877,7 +675,7 @@ w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
 \subsection{四边形不等式对二维 DP 的优化}
 
 在优化二维 DP 时，DP 的形式则多为
-\(f[i][j]=\min_{i\le k\lt j}\{f[i][k]+f[k+1][j]+w(i,j)\}(i\lt j)\)，\(f[i][i]=0\)。
+\(f[i][j]=\min_{i\le k < j}\{f[i][k]+f[k+1][j]+w(i,j)\}(i < j)\)，\(f[i][i]=0\)。
 
 不妨设令 \(f[i][j]\) 取得最小值的 \(k\) 为 \(d[i][j]\)，那么
 
@@ -921,7 +719,7 @@ w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
 f[l][r+1]+f[l+1][r]=f[l][l+2]\ge w(l,l+2)\\
 f[l][r]+f[l+1][r+1]=f[l][l+1]+f[l+1][l+2]=w(l,l+1)+w(l+1,l+2)\\
 f[l][r+1]+f[l+1][r]\ge f[l][r]+f[l+1][r+1]
-\] 设在 \(r-l\lt k\) 时，\(f\) 满足四边形不等式。为方便起见，设
+\] 设在 \(r-l < k\) 时，\(f\) 满足四边形不等式。为方便起见，设
 \(x=d[l][r+1],y=d[l+1][r]\)，那么 \[
 f[l][r+1]+f[l+1][r]=(f[l][x]+f[x+1][r+1]+w(l,r+1))+(f[l+1][y]+f[y+1][r]+w(l+1,r))\\
 f[l][r]+f[l+1][r+1]\le(f[l][x]+f[x+1][r]+w(l,r))+(f[l+1][y]+f[y+1][r+1]+w(l+1,r+1))
@@ -935,7 +733,7 @@ w(l,r+1)+w(l+1,r)\ge w(l,r)+w(l+1,r+1)
 
 \subsubsection{对二维决策单调性的证明}
 
-关于二维决策单调性的证明，设 \(x=d[i][j]\)，\(i\le k\lt x\)。根据 \(f\)
+关于二维决策单调性的证明，设 \(x=d[i][j]\)，\(i\le k < x\)。根据 \(f\)
 满足四边形不等式和 \(d[i][j]\) 的最优性，有 \[
 f[i][x]+f[i+1][k]\ge f[i][k]+f[i+1][x]\\
 f[i][k]+f[k+1][j]\ge f[i][x]+f[x+1][j]
@@ -944,7 +742,7 @@ f[i+1][k]+f[k+1][j]\ge f[i+1][x]+f[x+1][j]
 \] 因此对于 \(f[i+1][j]\) 的转移，\(k\in [i,d[i][j])\) 一定不优于
 \(d[i][j]\)，有 \(d[i+1][j]\ge d[i][j]\)。
 
-类似的，设 \(x\lt k\le j\)，有 \[
+类似的，设 \(x < k\le j\)，有 \[
 f[x+1][j]+f[k+1][j-1]\ge f[x+1][j-1]+f[k+1][j]\\
 f[i][k]+f[k+1][j]\ge f[i][x]+f[x+1][j]
 \] 可以得到 \[
@@ -974,54 +772,24 @@ f[i][k]+f[k+1][j-1]\ge f[i][x]+f[x+1][j-1]
 
 设 \(\operatorname{dp}[i][j]\) 为将下标在区间 \([i,j]\)
 内的石子合并为一堆所需的最小疲劳值，\(w(i,j)=\sum_{k=i}^ja[k]\)，那么有
-\$\$ \operatorname{dp}{[}i{]}{[}j{]}=
-
+\[
+\operatorname{dp}[i][j]=
 \left\{
-
 \begin{array}{ll}
-\min\limits_{i\le k\lt j}\{\operatorname{dp}[i][k]+\operatorname{dp}[k+1][j]+w(i,j)\},&i\lt j\\
+\min\limits_{i\le k < j}\{\operatorname{dp}[i][k]+\operatorname{dp}[k+1][j]+w(i,j)\},&i < j\\
 0,&i=j\\
 +\infty, &i>j
 \end{array}
-
-\right. \[
-直接转移时间复杂度为 $\mathcal{O}(n^3)$，不能接受。发现 $w$ 满足
-\] w(l,r+1)+w(l+1,r)=w(l,r)+w(l+1,r+1) \$\$
-即复合四边形不等式条件，因此可以对上述 DP 进行优化，达到
+\right.
+\] 直接转移时间复杂度为 \(\mathcal{O}(n^3)\)，不能接受。发现 \(w\) 满足
+\[
+w(l,r+1)+w(l+1,r)=w(l,r)+w(l+1,r+1)
+\] 即复合四边形不等式条件，因此可以对上述 DP 进行优化，达到
 \(\mathcal{O}(n^2)\) 的时间复杂度。
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ maxn}\OperatorTok{=}\DecValTok{5005}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{,}\NormalTok{a}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{s}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{dp}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{][}\NormalTok{maxn}\OperatorTok{],}\NormalTok{d}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{][}\NormalTok{maxn}\OperatorTok{];}
-\PreprocessorTok{\#define w}\OperatorTok{(}\NormalTok{i}\OperatorTok{,}\NormalTok{j}\OperatorTok{)}\PreprocessorTok{ }\OperatorTok{(}\NormalTok{s}\OperatorTok{[}\NormalTok{j}\OperatorTok{]{-}}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{])}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{n}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{];}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]=}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]+}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{];}
-\NormalTok{    memset}\OperatorTok{(}\NormalTok{dp}\OperatorTok{,}\BaseNTok{0x3f}\OperatorTok{,}\KeywordTok{sizeof}\OperatorTok{(}\NormalTok{dp}\OperatorTok{));}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{i}\OperatorTok{]=}\DecValTok{0}\OperatorTok{,}\NormalTok{d}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{i}\OperatorTok{]=}\NormalTok{i}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ l}\OperatorTok{=}\DecValTok{2}\OperatorTok{;}\NormalTok{l}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{l}\OperatorTok{++)\{}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{,}\NormalTok{j}\OperatorTok{;}\NormalTok{i}\OperatorTok{+}\NormalTok{l}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-\NormalTok{            j}\OperatorTok{=}\NormalTok{i}\OperatorTok{+}\NormalTok{l}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{;}
-            \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ k}\OperatorTok{=}\NormalTok{d}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{];}\NormalTok{k}\OperatorTok{\textless{}=}\NormalTok{min}\OperatorTok{(}\NormalTok{j}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{,}\NormalTok{d}\OperatorTok{[}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{][}\NormalTok{j}\OperatorTok{]);}\NormalTok{k}\OperatorTok{++)\{}
-                \DataTypeTok{int}\NormalTok{ nx}\OperatorTok{=}\NormalTok{dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{k}\OperatorTok{]+}\NormalTok{dp}\OperatorTok{[}\NormalTok{k}\OperatorTok{+}\DecValTok{1}\OperatorTok{][}\NormalTok{j}\OperatorTok{]+}\NormalTok{w}\OperatorTok{(}\NormalTok{i}\OperatorTok{,}\NormalTok{j}\OperatorTok{);}
-                \ControlFlowTok{if}\OperatorTok{(}\NormalTok{nx}\OperatorTok{\textless{}}\NormalTok{dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{])\{}
-\NormalTok{                    dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{]=}\NormalTok{nx}\OperatorTok{;}
-\NormalTok{                    d}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{]=}\NormalTok{k}\OperatorTok{;}
-                \OperatorTok{\}}
-            \OperatorTok{\}}
-        \OperatorTok{\}}
-    \OperatorTok{\}}
-\NormalTok{    cout}\OperatorTok{\textless{}\textless{}}\NormalTok{dp}\OperatorTok{[}\DecValTok{1}\OperatorTok{][}\NormalTok{n}\OperatorTok{]\textless{}\textless{}}\NormalTok{endl}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+7.cpp
 
 \subsection{应用实例二}
 
@@ -1078,39 +846,7 @@ w(l+1,r)+w(l,r-1)&=2w(l+1,r-1)+x_r-x_l-(x_{\lfloor \frac{l+r+1}{2}\rfloor}-x_{\l
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\KeywordTok{typedef} \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ll}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ maxn}\OperatorTok{=}\FloatTok{3e3}\OperatorTok{+}\DecValTok{5}\OperatorTok{,}\NormalTok{maxp}\OperatorTok{=}\DecValTok{305}\OperatorTok{;}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{,}\NormalTok{p}\OperatorTok{,}\NormalTok{dp}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{][}\NormalTok{maxp}\OperatorTok{],}\NormalTok{d}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{][}\NormalTok{maxp}\OperatorTok{],}\NormalTok{x}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{s}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\KeywordTok{inline} \DataTypeTok{int}\NormalTok{ w}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ l}\OperatorTok{,}\DataTypeTok{int}\NormalTok{ r}\OperatorTok{)\{}
-    \DataTypeTok{int}\NormalTok{ mid}\OperatorTok{=}\NormalTok{l}\OperatorTok{+}\NormalTok{r}\OperatorTok{\textgreater{}\textgreater{}}\DecValTok{1}\OperatorTok{;}
-    \DataTypeTok{int}\NormalTok{ res}\OperatorTok{=}\NormalTok{s}\OperatorTok{[}\NormalTok{r}\OperatorTok{]{-}}\NormalTok{s}\OperatorTok{[}\NormalTok{mid}\OperatorTok{]{-}}\NormalTok{x}\OperatorTok{[}\NormalTok{mid}\OperatorTok{]*(}\NormalTok{r}\OperatorTok{{-}}\NormalTok{mid}\OperatorTok{);}
-\NormalTok{    res}\OperatorTok{+=}\NormalTok{x}\OperatorTok{[}\NormalTok{mid}\OperatorTok{]*(}\NormalTok{mid}\OperatorTok{{-}}\NormalTok{l}\OperatorTok{){-}(}\NormalTok{s}\OperatorTok{[}\NormalTok{mid}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]{-}}\NormalTok{s}\OperatorTok{[}\NormalTok{l}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]);}
-    \ControlFlowTok{return}\NormalTok{ res}\OperatorTok{;}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{n}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{p}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{cin}\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{x}\OperatorTok{[}\NormalTok{i}\OperatorTok{];}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{x}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{x}\OperatorTok{+}\DecValTok{1}\OperatorTok{+}\NormalTok{n}\OperatorTok{);}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]=}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]+}\NormalTok{x}\OperatorTok{[}\NormalTok{i}\OperatorTok{];}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{p}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{d}\OperatorTok{[}\NormalTok{n}\OperatorTok{+}\DecValTok{1}\OperatorTok{][}\NormalTok{i}\OperatorTok{]=}\NormalTok{n}\OperatorTok{;}
-\NormalTok{    memset}\OperatorTok{(}\NormalTok{dp}\OperatorTok{,}\BaseNTok{0x3f}\OperatorTok{,}\KeywordTok{sizeof}\OperatorTok{(}\NormalTok{dp}\OperatorTok{));}
-\NormalTok{    dp}\OperatorTok{[}\DecValTok{0}\OperatorTok{][}\DecValTok{0}\OperatorTok{]=}\DecValTok{0}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ j}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textless{}=}\NormalTok{p}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textgreater{}=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{{-}{-})}
-        \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ k}\OperatorTok{=}\NormalTok{d}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{];}\NormalTok{k}\OperatorTok{\textless{}=}\NormalTok{d}\OperatorTok{[}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\OperatorTok{][}\NormalTok{j}\OperatorTok{];}\NormalTok{k}\OperatorTok{++)\{}
-            \DataTypeTok{int}\NormalTok{ nx}\OperatorTok{=}\NormalTok{dp}\OperatorTok{[}\NormalTok{k}\OperatorTok{][}\NormalTok{j}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]+}\NormalTok{w}\OperatorTok{(}\NormalTok{k}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{i}\OperatorTok{);}
-            \ControlFlowTok{if}\OperatorTok{(}\NormalTok{nx}\OperatorTok{\textless{}}\NormalTok{dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{])}
-\NormalTok{                dp}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{]=}\NormalTok{nx}\OperatorTok{,}\NormalTok{d}\OperatorTok{[}\NormalTok{i}\OperatorTok{][}\NormalTok{j}\OperatorTok{]=}\NormalTok{k}\OperatorTok{;}
-        \OperatorTok{\}}
-\NormalTok{    cout}\OperatorTok{\textless{}\textless{}}\NormalTok{dp}\OperatorTok{[}\NormalTok{n}\OperatorTok{][}\NormalTok{p}\OperatorTok{]\textless{}\textless{}}\CharTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\CharTok{\textquotesingle{}}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+8.cpp
 
 \section{CDQ 分治优化 DP}
 
@@ -1151,9 +887,9 @@ LIS 中不能出现两个相同的数字，因此剩下位置上出现相同数�
 \begin{itemize}
 \item
   若位置 \(i\) 被确定了，则
-  \(f(i,x)=\begin{cases}\max_{j\lt p_i}(f(i-1,j))+1&x=p_i\\0&x\not=p_i\end{cases}\)；
+  \(f(i,x)=\begin{cases}\max_{j < p_i}(f(i-1,j))+1&x=p_i\\0&x\not=p_i\end{cases}\)；
 \item
-  否则 \(f(i,j)=\max\{\max_{k\lt j}(f(i-1,k))+1,f(i-1,j)\}\)，这里的
+  否则 \(f(i,j)=\max\{\max_{k < j}(f(i-1,k))+1,f(i-1,j)\}\)，这里的
   \(j\) 必须不在已经确定的数字中出现过。
 \end{itemize}
 
@@ -1168,7 +904,7 @@ LIS 中不能出现两个相同的数字，因此剩下位置上出现相同数�
 \(a\) 长度为 \(i\)
 的前缀中没被确定的位置个数，\(\operatorname{rem}[p_i]\) 表示 \(< p_i\)
 且未出现在被确定的位置的数字个数，可以得到： \[
-f(i)=\max_{p_j\lt p_i}\{f(j)+\min\{\operatorname{cnt}[i]-\operatorname{cnt}[j],\operatorname{rem}[p_i]-\operatorname{rem}[p_j]\}\}+1
+f(i)=\max_{p_j < p_i}\{f(j)+\min\{\operatorname{cnt}[i]-\operatorname{cnt}[j],\operatorname{rem}[p_i]-\operatorname{rem}[p_j]\}\}+1
 \] 注意到这里同时有 \(p_j<p_i\) 和 \(j<i\) 两个限制，且中间的 \(\min\)
 可以分类讨论为两种情况：
 
@@ -1191,33 +927,7 @@ f(i)=\max_{p_j\lt p_i}\{f(j)+\min\{\operatorname{cnt}[i]-\operatorname{cnt}[j],\
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{//a[i].x=id,a[i].y=cnt[i]{-}rem[p[i]],a[i].tp=(p[i]\textgreater{}0);}
-\DataTypeTok{void}\NormalTok{ cdq}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ l}\OperatorTok{,}\DataTypeTok{int}\NormalTok{ r}\OperatorTok{)\{}
-    \ControlFlowTok{if}\OperatorTok{(}\NormalTok{l}\OperatorTok{\textgreater{}=}\NormalTok{r}\OperatorTok{)}\ControlFlowTok{return} \OperatorTok{;}
-    \DataTypeTok{int}\NormalTok{ mid}\OperatorTok{=(}\NormalTok{l}\OperatorTok{+}\NormalTok{r}\OperatorTok{)\textgreater{}\textgreater{}}\DecValTok{1}\OperatorTok{;}
-\NormalTok{    cdq}\OperatorTok{(}\NormalTok{l}\OperatorTok{,}\NormalTok{mid}\OperatorTok{);}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\NormalTok{l}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{cmpy}\OperatorTok{);}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{r}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{cmpy}\OperatorTok{);}
-    \DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\NormalTok{l}\OperatorTok{,}\NormalTok{j}\OperatorTok{=}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(;}\NormalTok{j}\OperatorTok{\textless{}=}\NormalTok{r}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)\{}
-        \ControlFlowTok{if}\OperatorTok{(!}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{tp}\OperatorTok{)}\ControlFlowTok{continue}\OperatorTok{;}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{mid}\OperatorTok{\&\&}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{y}\OperatorTok{\textless{}=}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{y}\OperatorTok{)}
-            \OperatorTok{\{}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{tp}\OperatorTok{)}\NormalTok{upd}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{p}\OperatorTok{,}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{f}\OperatorTok{{-}}\NormalTok{rem}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{p}\OperatorTok{]);}\NormalTok{i}\OperatorTok{++;\}}
-\NormalTok{        a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{f}\OperatorTok{=}\NormalTok{max}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{f}\OperatorTok{,}\NormalTok{qry}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{p}\OperatorTok{)+}\NormalTok{rem}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{p}\OperatorTok{]+}\DecValTok{1}\OperatorTok{);}
-    \OperatorTok{\}}\ControlFlowTok{for}\OperatorTok{(}\NormalTok{j}\OperatorTok{=}\NormalTok{l}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textless{}}\NormalTok{i}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{tp}\OperatorTok{)}\NormalTok{clr}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{p}\OperatorTok{);}
-\NormalTok{    i}\OperatorTok{=}\NormalTok{mid}\OperatorTok{;}\NormalTok{j}\OperatorTok{=}\NormalTok{r}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(;}\NormalTok{j}\OperatorTok{\textgreater{}}\NormalTok{mid}\OperatorTok{;}\NormalTok{j}\OperatorTok{{-}{-})\{}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{i}\OperatorTok{\textgreater{}=}\NormalTok{l}\OperatorTok{\&\&}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{y}\OperatorTok{\textgreater{}}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{y}\OperatorTok{)}
-            \OperatorTok{\{}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{tp}\OperatorTok{)}\NormalTok{upd}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{p}\OperatorTok{,}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{f}\OperatorTok{{-}}\NormalTok{cnt}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{p}\OperatorTok{]);}\NormalTok{i}\OperatorTok{++;\}}
-\NormalTok{        a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{f}\OperatorTok{=}\NormalTok{max}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{f}\OperatorTok{,}\NormalTok{qry}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{p}\OperatorTok{)+}\NormalTok{cnt}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{p}\OperatorTok{]+}\DecValTok{1}\OperatorTok{);}
-    \OperatorTok{\}}\ControlFlowTok{for}\OperatorTok{(}\NormalTok{j}\OperatorTok{=}\NormalTok{mid}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textgreater{}}\NormalTok{i}\OperatorTok{;}\NormalTok{j}\OperatorTok{{-}{-})}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{tp}\OperatorTok{)}\NormalTok{clr}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{p}\OperatorTok{);}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\NormalTok{l}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{r}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{cmpx}\OperatorTok{);}
-\NormalTok{    cdq}\OperatorTok{(}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{r}\OperatorTok{);}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+9.cpp
 
 \subsection{应用实例二}
 
@@ -1240,7 +950,7 @@ f(i)=\max_{p_j\lt p_i}\{f(j)+\min\{\operatorname{cnt}[i]-\operatorname{cnt}[j],\
 
 不妨设 \(\operatorname{dp}[i]\) 为通过桥梁将 \(1\) 和 \(i\)
 联通的最小代价，\(s_i=\sum_{i\in[1,i]}w_i\)，不难得到 \[
-\operatorname{dp}[i]=\min_{j\lt i}(dp[j]+s_{i-1}-s_j+(h_i-h_j)^2)
+\operatorname{dp}[i]=\min_{j < i}(dp[j]+s_{i-1}-s_j+(h_i-h_j)^2)
 \] 将 \(\min\) 去掉可以得到 \[
 (\operatorname{dp}[j]-s_j+h_j^2)=h_i\times(2h_j)-(s_{i-1}+h_i^2)+\operatorname{dp}[i]
 \]
@@ -1255,60 +965,7 @@ CDQ 分治。具体来讲，以第一维为下标，计算 \(\operatorname{cdq}(
 
 \subsubsection{代码实现}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\PreprocessorTok{\#include }\ImportTok{\textless{}bits/stdc++.h\textgreater{}}
-\KeywordTok{using} \KeywordTok{namespace}\NormalTok{ std}\OperatorTok{;}
-\KeywordTok{typedef} \DataTypeTok{long} \DataTypeTok{long}\NormalTok{ ll}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{int}\NormalTok{ maxn}\OperatorTok{=}\FloatTok{1e5}\OperatorTok{+}\DecValTok{5}\OperatorTok{;}
-\AttributeTok{const} \DataTypeTok{double}\NormalTok{ eps}\OperatorTok{=}\FloatTok{1e{-}6}\OperatorTok{;}
-\KeywordTok{inline} \DataTypeTok{int}\NormalTok{ read}\OperatorTok{()\{}
-    \DataTypeTok{int}\NormalTok{ x}\OperatorTok{=}\DecValTok{0}\OperatorTok{,}\NormalTok{f}\OperatorTok{=}\DecValTok{1}\OperatorTok{,}\NormalTok{ch}\OperatorTok{=}\NormalTok{getchar}\OperatorTok{();}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{ch}\OperatorTok{\textless{}}\CharTok{\textquotesingle{}0\textquotesingle{}}\OperatorTok{||}\NormalTok{ch}\OperatorTok{\textgreater{}}\CharTok{\textquotesingle{}9\textquotesingle{}}\OperatorTok{)\{}\ControlFlowTok{if}\OperatorTok{(}\NormalTok{ch}\OperatorTok{==}\CharTok{\textquotesingle{}{-}\textquotesingle{}}\OperatorTok{)}\NormalTok{f}\OperatorTok{={-}}\DecValTok{1}\OperatorTok{;}\NormalTok{ch}\OperatorTok{=}\NormalTok{getchar}\OperatorTok{();\}}
-    \ControlFlowTok{while}\OperatorTok{(}\NormalTok{ch}\OperatorTok{\textgreater{}=}\CharTok{\textquotesingle{}0\textquotesingle{}}\OperatorTok{\&\&}\NormalTok{ch}\OperatorTok{\textless{}=}\CharTok{\textquotesingle{}9\textquotesingle{}}\OperatorTok{)\{}\NormalTok{x}\OperatorTok{=(}\NormalTok{x}\OperatorTok{\textless{}\textless{}}\DecValTok{3}\OperatorTok{)+(}\NormalTok{x}\OperatorTok{\textless{}\textless{}}\DecValTok{1}\OperatorTok{)+}\NormalTok{ch}\OperatorTok{{-}}\DecValTok{48}\OperatorTok{;}\NormalTok{ch}\OperatorTok{=}\NormalTok{getchar}\OperatorTok{();\}}
-    \ControlFlowTok{return}\NormalTok{ x}\OperatorTok{*}\NormalTok{f}\OperatorTok{;}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ n}\OperatorTok{;}
-\NormalTok{ll f}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{s}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\KeywordTok{struct}\NormalTok{ node}\OperatorTok{\{}\DataTypeTok{int}\NormalTok{ h}\OperatorTok{,}\NormalTok{id}\OperatorTok{;}\NormalTok{ll s}\OperatorTok{;\}}\NormalTok{a}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{];}
-\DataTypeTok{bool}\NormalTok{ cmph}\OperatorTok{(}\NormalTok{node a}\OperatorTok{,}\NormalTok{node b}\OperatorTok{)\{}\ControlFlowTok{return}\NormalTok{ a}\OperatorTok{.}\NormalTok{h}\OperatorTok{\textless{}}\NormalTok{b}\OperatorTok{.}\NormalTok{h}\OperatorTok{;\}}
-\DataTypeTok{bool}\NormalTok{ cmpid}\OperatorTok{(}\NormalTok{node a}\OperatorTok{,}\NormalTok{node b}\OperatorTok{)\{}\ControlFlowTok{return}\NormalTok{ a}\OperatorTok{.}\NormalTok{id}\OperatorTok{\textless{}}\NormalTok{b}\OperatorTok{.}\NormalTok{id}\OperatorTok{;\}}
-\DataTypeTok{int}\NormalTok{ q}\OperatorTok{[}\NormalTok{maxn}\OperatorTok{],}\NormalTok{hd}\OperatorTok{=}\DecValTok{1}\OperatorTok{,}\NormalTok{tl}\OperatorTok{;}
-\DataTypeTok{double}\NormalTok{ slope}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ u}\OperatorTok{,}\DataTypeTok{int}\NormalTok{ v}\OperatorTok{)\{}
-\NormalTok{    ll uy}\OperatorTok{=}\NormalTok{f}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{u}\OperatorTok{].}\NormalTok{id}\OperatorTok{]{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{u}\OperatorTok{].}\NormalTok{s}\OperatorTok{+(}\DecValTok{1}\BuiltInTok{ll}\OperatorTok{)*}\NormalTok{a}\OperatorTok{[}\NormalTok{u}\OperatorTok{].}\NormalTok{h}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{u}\OperatorTok{].}\NormalTok{h}\OperatorTok{;}
-\NormalTok{    ll vy}\OperatorTok{=}\NormalTok{f}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{v}\OperatorTok{].}\NormalTok{id}\OperatorTok{]{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{v}\OperatorTok{].}\NormalTok{s}\OperatorTok{+(}\DecValTok{1}\BuiltInTok{ll}\OperatorTok{)*}\NormalTok{a}\OperatorTok{[}\NormalTok{v}\OperatorTok{].}\NormalTok{h}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{v}\OperatorTok{].}\NormalTok{h}\OperatorTok{;}
-    \ControlFlowTok{if}\OperatorTok{(}\NormalTok{a}\OperatorTok{[}\NormalTok{u}\OperatorTok{].}\NormalTok{h}\OperatorTok{==}\NormalTok{a}\OperatorTok{[}\NormalTok{v}\OperatorTok{].}\NormalTok{h}\OperatorTok{)\{}\ControlFlowTok{return}\NormalTok{ vy}\OperatorTok{\textgreater{}}\NormalTok{uy}\OperatorTok{?}\FloatTok{1e18}\OperatorTok{:{-}}\FloatTok{1e18}\OperatorTok{;\}}
-    \ControlFlowTok{return} \OperatorTok{(}\NormalTok{uy}\OperatorTok{{-}}\NormalTok{vy}\OperatorTok{)*}\FloatTok{1.0}\OperatorTok{/(}\NormalTok{a}\OperatorTok{[}\NormalTok{u}\OperatorTok{].}\NormalTok{h}\OperatorTok{{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{v}\OperatorTok{].}\NormalTok{h}\OperatorTok{);}
-\OperatorTok{\}}
-\DataTypeTok{void}\NormalTok{ cdq}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ l}\OperatorTok{,}\DataTypeTok{int}\NormalTok{ r}\OperatorTok{)\{}
-    \ControlFlowTok{if}\OperatorTok{(}\NormalTok{l}\OperatorTok{\textgreater{}=}\NormalTok{r}\OperatorTok{)}\ControlFlowTok{return} \OperatorTok{;}
-    \DataTypeTok{int}\NormalTok{ mid}\OperatorTok{=}\NormalTok{l}\OperatorTok{+}\NormalTok{r}\OperatorTok{\textgreater{}\textgreater{}}\DecValTok{1}\OperatorTok{;}
-\NormalTok{    cdq}\OperatorTok{(}\NormalTok{l}\OperatorTok{,}\NormalTok{mid}\OperatorTok{);}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\NormalTok{l}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{cmph}\OperatorTok{);}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{r}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{cmph}\OperatorTok{);}
-    \CommentTok{//斜率优化}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\NormalTok{l}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{mid}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)\{}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{tl}\OperatorTok{\textgreater{}}\DecValTok{1}\OperatorTok{\&\&}\NormalTok{slope}\OperatorTok{(}\NormalTok{q}\OperatorTok{[}\NormalTok{tl}\OperatorTok{],}\NormalTok{i}\OperatorTok{)\textless{}}\NormalTok{slope}\OperatorTok{(}\NormalTok{q}\OperatorTok{[}\NormalTok{tl}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{],}\NormalTok{q}\OperatorTok{[}\NormalTok{tl}\OperatorTok{]))}\NormalTok{tl}\OperatorTok{{-}{-};}
-\NormalTok{        q}\OperatorTok{[++}\NormalTok{tl}\OperatorTok{]=}\NormalTok{i}\OperatorTok{;}
-    \OperatorTok{\}}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ j}\OperatorTok{=}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{;}\NormalTok{j}\OperatorTok{\textless{}=}\NormalTok{r}\OperatorTok{;}\NormalTok{j}\OperatorTok{++)\{}
-        \ControlFlowTok{while}\OperatorTok{(}\NormalTok{hd}\OperatorTok{\textless{}}\NormalTok{tl}\OperatorTok{\&\&}\NormalTok{slope}\OperatorTok{(}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{],}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{+}\DecValTok{1}\OperatorTok{])\textless{}=}\FloatTok{2.0}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{h}\OperatorTok{+}\NormalTok{eps}\OperatorTok{)}\NormalTok{hd}\OperatorTok{++;}
-        \ControlFlowTok{if}\OperatorTok{(}\NormalTok{hd}\OperatorTok{\textless{}=}\NormalTok{tl}\OperatorTok{)}\NormalTok{f}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{id}\OperatorTok{]=}\NormalTok{min}\OperatorTok{(}\NormalTok{f}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{id}\OperatorTok{],}\NormalTok{s}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{id}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{]+(}\DecValTok{1}\BuiltInTok{ll}\OperatorTok{)*}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{h}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{h}\OperatorTok{+}\NormalTok{f}\OperatorTok{[}\NormalTok{a}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]].}\NormalTok{id}\OperatorTok{]{-}}\NormalTok{a}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]].}\NormalTok{s}\OperatorTok{+(}\DecValTok{1}\BuiltInTok{ll}\OperatorTok{)*}\NormalTok{a}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]].}\NormalTok{h}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]].}\NormalTok{h}\OperatorTok{{-}}\DecValTok{2}\BuiltInTok{ll}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{j}\OperatorTok{].}\NormalTok{h}\OperatorTok{*}\NormalTok{a}\OperatorTok{[}\NormalTok{q}\OperatorTok{[}\NormalTok{hd}\OperatorTok{]].}\NormalTok{h}\OperatorTok{);}
-    \OperatorTok{\}}\NormalTok{hd}\OperatorTok{=}\DecValTok{1}\OperatorTok{,}\NormalTok{tl}\OperatorTok{=}\DecValTok{0}\OperatorTok{;}
-\NormalTok{    sort}\OperatorTok{(}\NormalTok{a}\OperatorTok{+}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{a}\OperatorTok{+}\NormalTok{r}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{cmpid}\OperatorTok{);}
-\NormalTok{    cdq}\OperatorTok{(}\NormalTok{mid}\OperatorTok{+}\DecValTok{1}\OperatorTok{,}\NormalTok{r}\OperatorTok{);}
-\OperatorTok{\}}
-\DataTypeTok{int}\NormalTok{ main}\OperatorTok{()\{}
-\NormalTok{    n}\OperatorTok{=}\NormalTok{read}\OperatorTok{();}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{h}\OperatorTok{=}\NormalTok{read}\OperatorTok{(),}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{id}\OperatorTok{=}\NormalTok{i}\OperatorTok{;}
-    \ControlFlowTok{for}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ i}\OperatorTok{=}\DecValTok{1}\OperatorTok{;}\NormalTok{i}\OperatorTok{\textless{}=}\NormalTok{n}\OperatorTok{;}\NormalTok{i}\OperatorTok{++)}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{s}\OperatorTok{=}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{{-}}\DecValTok{1}\OperatorTok{].}\NormalTok{s}\OperatorTok{+}\NormalTok{read}\OperatorTok{(),}\NormalTok{s}\OperatorTok{[}\NormalTok{i}\OperatorTok{]=}\NormalTok{a}\OperatorTok{[}\NormalTok{i}\OperatorTok{].}\NormalTok{s}\OperatorTok{;}
-\NormalTok{    memset}\OperatorTok{(}\NormalTok{f}\OperatorTok{,}\BaseNTok{0x3f}\OperatorTok{,}\KeywordTok{sizeof}\OperatorTok{(}\NormalTok{f}\OperatorTok{));}\NormalTok{f}\OperatorTok{[}\DecValTok{1}\OperatorTok{]=}\DecValTok{0}\OperatorTok{;}
-\NormalTok{    cdq}\OperatorTok{(}\DecValTok{1}\OperatorTok{,}\NormalTok{n}\OperatorTok{);}
-\NormalTok{    cout}\OperatorTok{\textless{}\textless{}}\NormalTok{f}\OperatorTok{[}\NormalTok{n}\OperatorTok{]\textless{}\textless{}}\CharTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\CharTok{\textquotesingle{}}\OperatorTok{;}
-    \ControlFlowTok{return} \DecValTok{0}\OperatorTok{;}
-\OperatorTok{\}}
-\end{Highlighting}
-\end{Shaded}
+10.cpp
 
 \section{结语}
 
@@ -1321,3 +978,7 @@ CDQ 分治。具体来讲，以第一维为下标，计算 \(\operatorname{cdq}(
 \section{参考资料}
 
 TODO.
+
+\end{document}
+
+

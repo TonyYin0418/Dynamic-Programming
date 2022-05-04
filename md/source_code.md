@@ -99,7 +99,33 @@ $$
 
 ### 代码实现
 
-1.cpp
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+long long n,k,f[15][105][(1<<9)];
+#define pc __builtin_popcount
+int main(){
+	cin>>n>>k;
+	f[0][0][0]=1;
+	for(int i=1;i<=n;i++){
+		for(int S1=0;S1<(1<<n);S1++){
+			if((S1&(S1<<1))==0){
+                for(int S2=0;S2<(1<<n);S2++){
+                    if(((S2&(S2<<1))==0)&&(((S1&S2)||(S1&(S2<<1))||(S1&(S2>>1)))==0)){
+                        for(int j=0;j<=k;j++){
+                            f[i][j+pc(S2)][S2]+=f[i-1][j][S1];
+                        }
+                    }
+                }
+            }
+		}
+	}
+	long long ans=0;
+	for(int S=0;S<(1<<n);S++)ans+=f[n][k][S];
+	cout<<ans<<endl;
+	return 0;
+}
+```
 
 ## 应用实例二
 
@@ -164,7 +190,75 @@ $$
 
 ### 代码实现
 
-2.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int maxn=505,maxs=(1<<8),prn=8,pr[prn]={2,3,5,7,11,13,17,19};
+inline int read(){
+    int x=0,f=1,ch=getchar();
+    while(ch<'0'||ch>'9'){if(ch=='-')f=-1;ch=getchar();}
+    while(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+ch-48;ch=getchar();}
+    return x*f;
+}
+int n,mod;
+struct num{int v,key,S;}a[maxn];
+bool cmp(num a,num b){return a.key==b.key?a.v<b.v:a.key<b.key;}
+int f[maxs][maxs],dp1[maxs][maxs],dp2[maxs][maxs],_dp1[maxs][maxs],_dp2[maxs][maxs];
+inline void upd(int &x,int y){x=x+y;if(x>=mod)x-=mod;}
+int main(){
+    n=read();mod=read();
+    for(int i=1;i<n;i++){
+        a[i].v=a[i].key=i+1;
+        for(int j=0;j<prn;j++){
+            if(!(a[i].key%pr[j]))a[i].S|=(1<<j);
+            while(!(a[i].key%pr[j]))a[i].key/=pr[j];
+        }
+    }
+    sort(a+1,a+n,cmp);
+    f[0][0]=1;
+    int st=1;
+    while(a[st].key==1){
+        memset(_dp1,0,sizeof(_dp1));
+        for(int s1=0;s1<(1<<prn);s1++)
+        for(int s2=0;s2<(1<<prn);s2++){
+            upd(_dp1[s1|a[st].S][s2],f[s1][s2]);
+            upd(_dp1[s1][s2|a[st].S],f[s1][s2]);
+        }
+        for(int s1=0;s1<(1<<prn);s1++)
+        for(int s2=0;s2<(1<<prn);s2++)
+            upd(f[s1][s2],_dp1[s1][s2]);
+        st++;
+    }
+    for(int i=st;i<n;i++){
+        if(a[i].key!=a[i-1].key)
+        for(int s1=0;s1<(1<<prn);s1++)
+        for(int s2=0;s2<(1<<prn);s2++)
+            dp1[s1][s2]=dp2[s1][s2]=f[s1][s2];
+        memset(_dp1,0,sizeof(_dp1));
+        memset(_dp2,0,sizeof(_dp2));
+        for(int s1=0;s1<(1<<prn);s1++)
+        for(int s2=0;s2<(1<<prn);s2++){
+            upd(_dp1[s1|a[i].S][s2],dp1[s1][s2]);
+            upd(_dp2[s1][s2|a[i].S],dp2[s1][s2]);
+        }
+        for(int s1=0;s1<(1<<prn);s1++)
+        for(int s2=0;s2<(1<<prn);s2++)
+            upd(dp1[s1][s2],_dp1[s1][s2]),
+            upd(dp2[s1][s2],_dp2[s1][s2]);
+        if(a[i].key!=a[i+1].key)
+        for(int s1=0;s1<(1<<prn);s1++)
+        for(int s2=0;s2<(1<<prn);s2++)
+            f[s1][s2]=((dp1[s1][s2]+dp2[s1][s2])%mod-f[s1][s2]+mod)%mod;
+    }
+    int ans=0;
+    for(int s1=0;s1<(1<<prn);s1++)
+    for(int s2=0;s2<(1<<prn);s2++)
+        if((s1&s2)==0)upd(ans,f[s1][s2]);
+    cout<<ans<<'\n';
+    return 0;
+}
+```
 
 # 按数位顺序进行的动态规划
 
@@ -230,7 +324,36 @@ $$
 
 ### 代码实现
 
-3.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int MAXN = 20;
+int a, b, num[MAXN];
+int dp[MAXN][MAXN];
+int dfs(int pos, int lst, bool lim, bool zero) {
+    if(pos == 0) return 1;
+    if(!lim && !zero && dp[pos][lst] != -1) return dp[pos][lst];
+    int ret = 0;
+    int mx = lim ? num[pos] : 9;
+    for(int i = 0; i <= mx; i++) if(abs(i - lst) >= 2)
+        ret += dfs(pos - 1, (zero & (i == 0)) ? -2 : i,
+                   lim & (i == num[pos]), zero & (i == 0));
+    if(!lim && !zero) dp[pos][lst] = ret;
+    return ret;
+}
+int solve(int x) {
+    int p = 0;
+    while(x)
+        num[++p] = x % 10, x /= 10;
+    memset(dp, -1, sizeof(dp));
+    return dfs(p, -2, 1, 1);
+}
+int main() {
+    cin >> a >> b;
+    cout << solve(b) - solve(a - 1) << endl;
+    return 0;
+}
+```
 
 # 单调队列优化动态规划
 
@@ -299,7 +422,32 @@ $$
 
 ### 代码实现
 
-4.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int maxn=1e6+5;
+int n,Q,k,h[maxn],dp[maxn];
+int q[maxn],hd,tl;
+int main(){
+    ios::sync_with_stdio(0);
+    cin>>n;
+    for(int i=1;i<=n;i++)cin>>h[i];
+    cin>>Q;
+    while(Q--){
+        cin>>k;
+        q[hd=tl=1]=1;
+        for(int i=2;i<=n;i++){
+            while(hd<=tl&&i-q[hd]>k)hd++;
+            dp[i]=dp[q[hd]]+(h[q[hd]]<=h[i]);
+            while(hd<=tl&&(dp[q[tl]]>dp[i]||(dp[q[tl]]==dp[i]&&h[q[tl]]<=h[i])))tl--;
+            q[++tl]=i;
+        }
+        printf("%d\n",dp[n]);
+    }
+    return 0;
+}
+```
 
 ## 应用实例二 
 
@@ -335,7 +483,55 @@ $$
 
 ### 代码实现
 
-5.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int maxn=1e3+5;
+int n;
+struct node{int x,w;}a[maxn];
+bool cmp(node a,node b){return a.x<b.x;}
+struct Que{
+    node v[maxn];
+    int tail,head;
+    inline void push(node x){
+        while(tail&&v[tail].x==x.x&&v[tail].w<=x.w)tail--;
+        if(x.w>v[tail].w||!tail)v[++tail]=x;
+    }
+    inline void pop(int x){
+        while(head<tail&&x>=v[head+1].x)head++;
+    }
+    inline void clear(){
+        tail=head=0;
+    }
+}s[maxn];
+int main(){
+    ios::sync_with_stdio(0);
+    cin>>n;
+    for(int i=1;i<=n;i++)cin>>a[i].x>>a[i].w;
+    sort(a+1,a+1+n,cmp);
+    int ans=0;
+    for(int i=1;i<=n;i++){
+        s[i].push((node){-1,a[i].w});
+        for(int j=i-1;j>=1;j--){
+            s[j].pop(a[i].x-a[j].x);
+            s[i].push((node){a[i].x-a[j].x,s[j].v[s[j].head].w+a[i].w});
+        }
+        ans=max(ans,s[i].v[s[i].tail].w);
+    }
+    for(int i=1;i<=n;i++)s[i].clear();
+    for(int i=n;i>=1;i--){
+        s[i].push((node){-1,a[i].w});
+        for(int j=i+1;j<=n;j++){
+            s[j].pop(a[j].x-a[i].x);
+            s[i].push((node){a[j].x-a[i].x,s[j].v[s[j].head].w+a[i].w});
+        }
+        ans=max(ans,s[i].v[s[i].tail].w);
+    }
+    cout<<ans<<'\n';
+    return 0;
+}
+```
 
 # 斜率优化动态规划
 
@@ -411,7 +607,39 @@ $(x_j, y_j)$ 的几何意义为直线 $y=kx+b$ 上的一个点，又因为转移
 
 ### 代码实现
 
-6.cpp
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+using namespace std;
+const int MAXN = 5e4 + 10;
+int n, L;
+int c[MAXN], s[MAXN], f[MAXN];
+double slope(int i, int j) {
+	return ((f[j]+(s[j]+L)*(s[j]+L)) - (f[i]+(s[i]+L)*(s[i]+L))) / (double)(s[j] - s[i]);
+}
+int head, tail, q[MAXN];
+signed main() {
+	scanf("%lld%lld", &n, &L);
+	L += 1;
+	for(int i = 1; i <= n; i++) {
+		scanf("%lld", &c[i]);
+		s[i] = s[i - 1] + c[i] + 1;
+	}
+	head = tail = 1;
+	for(int i = 1; i <= n; i++) {
+		while(head < tail && slope(q[head], q[head + 1]) <= 2 * s[i]) {
+            head++;
+        }
+		f[i] = f[q[head]] + (s[i] - s[q[head]] - L) * (s[i] - s[q[head]] - L);
+		while(head < tail && slope(q[tail - 1], q[tail]) >= slope(q[tail], i)) {
+            tail--;
+        }
+		q[++tail] = i;
+	}
+	printf("%lld", f[n]);
+	return 0;
+}
+```
 
 # 四边形不等式优化动态规划
 
@@ -537,6 +765,7 @@ $$
 设 $\operatorname{dp}[i][j]$ 为将下标在区间 $[i,j]$ 内的石子合并为一堆所需的最小疲劳值，$w(i,j)=\sum_{k=i}^ja[k]$，那么有
 $$
 \operatorname{dp}[i][j]=
+
 \left\{
 \begin{array}{ll}
 \min\limits_{i\le k\lt j}\{\operatorname{dp}[i][k]+\operatorname{dp}[k+1][j]+w(i,j)\},&i\lt j\\
@@ -553,7 +782,34 @@ $$
 
 ### 代码实现
 
-7.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+const int maxn=5005;
+int n,a[maxn],s[maxn],dp[maxn][maxn],d[maxn][maxn];
+#define w(i,j) (s[j]-s[i-1])
+int main(){
+    cin>>n;
+    for(int i=1;i<=n;i++)cin>>a[i];
+    for(int i=1;i<=n;i++)s[i]=s[i-1]+a[i];
+    memset(dp,0x3f,sizeof(dp));
+    for(int i=1;i<=n;i++)dp[i][i]=0,d[i][i]=i;
+    for(int l=2;l<=n;l++){
+        for(int i=1,j;i+l-1<=n;i++){
+            j=i+l-1;
+            for(int k=d[i][j-1];k<=min(j-1,d[i+1][j]);k++){
+                int nx=dp[i][k]+dp[k+1][j]+w(i,j);
+                if(nx<dp[i][j]){
+                    dp[i][j]=nx;
+                    d[i][j]=k;
+                }
+            }
+        }
+    }
+    cout<<dp[1][n]<<endl;
+    return 0;
+}
+```
 
 ## 应用实例二
 
@@ -605,7 +861,37 @@ $$
 
 ### 代码实现
 
-8.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int maxn=3e3+5,maxp=305;
+int n,p,dp[maxn][maxp],d[maxn][maxp],x[maxn],s[maxn];
+inline int w(int l,int r){
+    int mid=l+r>>1;
+    int res=s[r]-s[mid]-x[mid]*(r-mid);
+    res+=x[mid]*(mid-l)-(s[mid-1]-s[l-1]);
+    return res;
+}
+int main(){
+    cin>>n>>p;
+    for(int i=1;i<=n;i++)cin>>x[i];
+    sort(x+1,x+1+n);
+    for(int i=1;i<=n;i++)s[i]=s[i-1]+x[i];
+    for(int i=1;i<=p;i++)d[n+1][i]=n;
+    memset(dp,0x3f,sizeof(dp));
+    dp[0][0]=0;
+    for(int j=1;j<=p;j++)
+        for(int i=n;i>=1;i--)
+        for(int k=d[i][j-1];k<=d[i+1][j];k++){
+            int nx=dp[k][j-1]+w(k+1,i);
+            if(nx<dp[i][j])
+                dp[i][j]=nx,d[i][j]=k;
+        }
+    cout<<dp[n][p]<<'\n';
+    return 0;
+}
+```
 
 # CDQ 分治优化 DP
 
@@ -658,7 +944,31 @@ $$
 
 ### 代码实现
 
-9.cpp
+```cpp
+//a[i].x=id,a[i].y=cnt[i]-rem[p[i]],a[i].tp=(p[i]>0);
+void cdq(int l,int r){
+    if(l>=r)return ;
+    int mid=(l+r)>>1;
+    cdq(l,mid);
+    sort(a+l,a+mid+1,cmpy);
+    sort(a+mid+1,a+r+1,cmpy);
+    int i=l,j=mid+1;
+    for(;j<=r;j++){
+        if(!a[j].tp)continue;
+        while(i<=mid&&a[i].y<=a[j].y)
+        	{if(a[i].tp)upd(a[i].p,a[i].f-rem[a[i].p]);i++;}
+        a[j].f=max(a[j].f,qry(a[j].p)+rem[a[j].p]+1);
+    }for(j=l;j<i;j++)if(a[j].tp)clr(a[j].p);
+    i=mid;j=r;
+    for(;j>mid;j--){
+        while(i>=l&&a[i].y>a[j].y)
+        	{if(a[i].tp)upd(a[i].p,a[i].f-cnt[a[i].p]);i++;}
+        a[j].f=max(a[j].f,qry(a[j].p)+cnt[a[j].p]+1);
+    }for(j=mid;j>i;j--)if(a[j].tp)clr(a[j].p);
+    sort(a+l,a+r+1,cmpx);
+    cdq(mid+1,r);
+}
+```
 
 ## 应用实例二
 
@@ -689,7 +999,58 @@ $$
 
 ### 代码实现
 
-10.cpp
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int maxn=1e5+5;
+const double eps=1e-6;
+inline int read(){
+    int x=0,f=1,ch=getchar();
+    while(ch<'0'||ch>'9'){if(ch=='-')f=-1;ch=getchar();}
+    while(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+ch-48;ch=getchar();}
+    return x*f;
+}
+int n;
+ll f[maxn],s[maxn];
+struct node{int h,id;ll s;}a[maxn];
+bool cmph(node a,node b){return a.h<b.h;}
+bool cmpid(node a,node b){return a.id<b.id;}
+int q[maxn],hd=1,tl;
+double slope(int u,int v){
+    ll uy=f[a[u].id]-a[u].s+(1ll)*a[u].h*a[u].h;
+    ll vy=f[a[v].id]-a[v].s+(1ll)*a[v].h*a[v].h;
+    if(a[u].h==a[v].h){return vy>uy?1e18:-1e18;}
+    return (uy-vy)*1.0/(a[u].h-a[v].h);
+}
+void cdq(int l,int r){
+    if(l>=r)return ;
+    int mid=l+r>>1;
+    cdq(l,mid);
+    sort(a+l,a+mid+1,cmph);
+    sort(a+mid+1,a+r+1,cmph);
+    //斜率优化
+    for(int i=l;i<=mid;i++){
+        while(tl>1&&slope(q[tl],i)<slope(q[tl-1],q[tl]))tl--;
+        q[++tl]=i;
+    }
+    for(int j=mid+1;j<=r;j++){
+        while(hd<tl&&slope(q[hd],q[hd+1])<=2.0*a[j].h+eps)hd++;
+        if(hd<=tl)f[a[j].id]=min(f[a[j].id],s[a[j].id-1]+(1ll)*a[j].h*a[j].h+f[a[q[hd]].id]-a[q[hd]].s+(1ll)*a[q[hd]].h*a[q[hd]].h-2ll*a[j].h*a[q[hd]].h);
+    }hd=1,tl=0;
+    sort(a+mid+1,a+r+1,cmpid);
+    cdq(mid+1,r);
+}
+int main(){
+    n=read();
+    for(int i=1;i<=n;i++)a[i].h=read(),a[i].id=i;
+    for(int i=1;i<=n;i++)a[i].s=a[i-1].s+read(),s[i]=a[i].s;
+    memset(f,0x3f,sizeof(f));f[1]=0;
+    cdq(1,n);
+    cout<<f[n]<<'\n';
+    return 0;
+}
+```
 
 # 结语
 
