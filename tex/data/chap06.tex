@@ -1,0 +1,208 @@
+% !TeX root = ../thuthesis-example.tex
+
+\chapter{四边形不等式优化动态规划}
+
+\section{四边形不等式}
+
+若对于任意整数 \(l_1,l_2,r_2,r_1\) 满足
+\(l_1\le l_2\le r_2\le r_1\)，若二元函数 \(w(x,y)\) 满足 \[
+w(l_1,r_1)+w(l_2,r_2)\ge w(l_1,r_2)+w(l_2,r_1)\tag{1}
+\] 则称 \(w\) 满足四边形不等式。四边形不等式有一个经典的等价形式： \[
+w(l,r+1)+w(l+1,r)\ge w(l,r)+w(l+1,r+1)\tag{2}
+\] 其中
+\(l < r\)。由（1）得到（2）较为显然，由（2）推出（1）可以通过数学归纳法证得。
+
+假设对于 \(l+x < r\) 有 \[
+w(l,r+1)+w(l+x,r)\ge w(l,r)+w(l+x,r+1)\\
+\] 在 \(x=1\) 时此式为（1）。
+
+对于 \(l+x+1 < r\)，根据（2）有 \[
+w(l+x,r+1)+w(l+x+1,r)\ge w(l+x,r)+w(l+x+1,r+1)\\
+\] 两式相加可得 \[
+w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
+\] 同理可得 \(w(l,r+y)+w(l+x,r)\ge w(l,r)+w(l+x,r+y)\)，即证。
+
+\section{四边形不等式对一维 DP 的优化}
+
+在优化一维 DP 时，DP 的形式往往为
+\(f[i]=\min\limits_{0\le j < i}\{f[j]+w(j,i)\}\)。不妨设令 \(f[i]\)
+取得最小值的 \(j\) 为 \(d[i]\)，那么若 \(w\) 满足四边形不等式，则 \(d\)
+单调不减，称 \(f\) 具有决策单调性。利用此性质可以使时间复杂度为
+\(\mathcal{O}(n^2)\) 的计算简化为
+\(\mathcal{O}(n\log n)\)。本文将不对这类优化进行细致探讨。
+
+\section{四边形不等式对二维 DP 的优化}
+
+在优化二维 DP 时，DP 的形式则多为
+\(f[i][j]=\min_{i\le k < j}\{f[i][k]+f[k+1][j]+w(i,j)\}(i < j)\)，\(f[i][i]=0\)。
+
+不妨设令 \(f[i][j]\) 取得最小值的 \(k\) 为 \(d[i][j]\)，那么
+
+\begin{itemize}
+
+\item
+  若
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+
+  \item
+    \(w\) 满足四边形不等式，
+  \item
+    对于任意 \(l_1\le l_2\le r_2\le r_1\)，有
+    \(w(l_1,r_1)\ge w(l_2,r_2)\)，
+  \end{enumerate}
+\item
+  则
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+
+  \item
+    \(f\) 也满足四边形不等式，
+  \item
+    \(d[i][j]\le d[i+1][j]\) 且 \(d[i][j]\le d[i][j+1]\).
+  \end{enumerate}
+\end{itemize}
+
+对于满足 \(d[i][j]\le \min\{d[i+1][j],d[i][j+1]\}\) 的，我们称 \(dp\)
+具有二维决策单调性。在对 \(f[i][j]\) 进行计算时，仅考察位于
+\([d[i][j-1],d[i+1][j]]\) 中的 \(k\) 可以使时间复杂度为
+\(\mathcal{O}(n^3)\) 的计算优化为 \(\mathcal{O}(n^2)\).
+
+\subsection{对满足四边形不等式的证明}
+
+关于 \(f\) 满足四边形不等式的证明，考虑使用数学归纳法。
+
+当 \(r-l=1\) 时， \[
+f[l][r+1]+f[l+1][r]=f[l][l+2]\ge w(l,l+2)\\
+f[l][r]+f[l+1][r+1]=f[l][l+1]+f[l+1][l+2]=w(l,l+1)+w(l+1,l+2)\\
+f[l][r+1]+f[l+1][r]\ge f[l][r]+f[l+1][r+1]
+\] 设在 \(r-l < k\) 时，\(f\) 满足四边形不等式。为方便起见，设
+\(x=d[l][r+1],y=d[l+1][r]\)，那么 \[
+f[l][r+1]+f[l+1][r]=(f[l][x]+f[x+1][r+1]+w(l,r+1))+(f[l+1][y]+f[y+1][r]+w(l+1,r))\\
+f[l][r]+f[l+1][r+1]\le(f[l][x]+f[x+1][r]+w(l,r))+(f[l+1][y]+f[y+1][r+1]+w(l+1,r+1))
+\] 欲证 \(f[l][r+1]+f[l+1][r]\ge f[l][r]+f[l+1][r+1]\)，只需证 \[
+f[x+1][r+1]+f[y+1][r]+w(l,r+1)+w(l+1,r)\ge f[x+1][r]+f[y+1][r+1]+w(l,r)+w(l+1,r+1)
+\] 只需证 \[
+f[x+1][r+1]+f[y+1][r]\ge f[x+1][r]+f[y+1][r+1]\\
+w(l,r+1)+w(l+1,r)\ge w(l,r)+w(l+1,r+1)
+\] 两式分别可以由归纳假设以及 \(w\) 满足四边形不等式得到，即证 \(f\)
+满足四边形不等式。
+
+\subsection{对二维决策单调性的证明}
+
+关于二维决策单调性的证明，设 \(x=d[i][j]\)，\(i\le k < x\)。根据 \(f\)
+满足四边形不等式和 \(d[i][j]\) 的最优性，有 \[
+f[i][x]+f[i+1][k]\ge f[i][k]+f[i+1][x]\\
+f[i][k]+f[k+1][j]\ge f[i][x]+f[x+1][j]
+\] 可以得到 \[
+f[i+1][k]+f[k+1][j]\ge f[i+1][x]+f[x+1][j]
+\] 因此对于 \(f[i+1][j]\) 的转移，\(k\in [i,d[i][j])\) 一定不优于
+\(d[i][j]\)，有 \(d[i+1][j]\ge d[i][j]\)。
+
+类似的，设 \(x < k\le j\)，有 \[
+f[x+1][j]+f[k+1][j-1]\ge f[x+1][j-1]+f[k+1][j]\\
+f[i][k]+f[k+1][j]\ge f[i][x]+f[x+1][j]
+\] 可以得到 \[
+f[i][k]+f[k+1][j-1]\ge f[i][x]+f[x+1][j-1]
+\] 即 \(d[i][j-1]\le d[i][j]\).
+
+\subsection{对时间复杂度的证明}
+
+关于时间复杂度是 \(\mathcal{O}(n^2)\) 的证明，考虑 \[
+\sum_{i=1}^{n-1}\sum_{j=i+1}^n(d[i+1][j]-d[i][j-1])\\
+=\sum_{i=2}^n\sum_{j=i+1}^nd[i][j]-\sum_{i=1}^{n-1}\sum_{j=i}^{n-1}d[i][j]\\
+=\sum_{i=1}^{n-1}d[i][n]-\sum_{j=2}^nd[1][j]-\sum_{i=1}^nd[i][i]
+\] 并且 \(d[i][j]\in[1,n]\)，因此
+\(\mathcal{O}(\sum_{i=1}^{n-1}\sum_{j=i+1}^n(d[i+1][j]-d[i][j-1]))=\mathcal{O}(n^2)\).
+
+\section{应用实例一}
+
+\subsection{题目描述}
+
+有 \(n\) 堆直线排列的石子，第 \(i\) 堆石子有 \(a[i]\) 个。
+
+规定每次只能合并任意相邻的两堆石子，并产生两堆石子数量之和的疲劳值。现在要将石子有序的合并成一堆，试求最小总疲劳值。
+
+数据范围：\(1\le n\le 5000\).
+
+\subsection{解题思路}
+
+设 \(\operatorname{dp}[i][j]\) 为将下标在区间 \([i,j]\)
+内的石子合并为一堆所需的最小疲劳值，\(w(i,j)=\sum_{k=i}^ja[k]\)，那么有
+\[
+\operatorname{dp}[i][j]=
+\left\{
+\begin{array}{ll}
+\min\limits_{i\le k < j}\{\operatorname{dp}[i][k]+\operatorname{dp}[k+1][j]+w(i,j)\},&i < j\\
+0,&i=j\\
++\infty, &i>j
+\end{array}
+\right.
+\] 直接转移时间复杂度为 \(\mathcal{O}(n^3)\)，不能接受。发现 \(w\) 满足
+\[
+w(l,r+1)+w(l+1,r)=w(l,r)+w(l+1,r+1)
+\] 即复合四边形不等式条件，因此可以对上述 DP 进行优化，达到
+\(\mathcal{O}(n^2)\) 的时间复杂度。
+
+\subsection{代码实现}
+
+7.cpp
+
+\section{应用实例二}
+
+\subsection{题目来源}
+
+题目名称：邮局。
+
+题目选自：IOI2000.
+
+\subsection{题目描述}
+
+给定 \(n\) 个村庄在一条直线上的坐标。现在要选一些村庄建立 \(k\)
+个邮局，使得每个村庄与其最近的邮局之间的距离总和最小。试求这个最小距离和。
+
+数据范围：用 \(p_i\) 表示村庄坐标，则
+\(1\le k\le 300\)，\(k\le n\le 3000\)，\(1 \le p_i\le 10000\).
+
+\subsection{解题思路}
+
+首先将村庄按其在坐标轴上的位置排序，设第 \(i\) 个村庄的坐标为 \(x_i\)。
+
+设 \(\operatorname{dp}[i][j]\) 表示前 \(i\) 个村庄建立 \(j\)
+个邮局的最小距离和，\(w(l,r)\) 表示在第 \(p\) 个村庄建立一个邮局所得到的
+\(\sum_{i=l}^r|x_i-x_p|\) 的最小值。不难看出
+\(p=\lfloor \frac{l+r}{2}\rfloor\)，因此 \[
+\begin{aligned}
+w(l,r)&=(\sum_{i=p+1}^rx_i-x_p(r-p))+(x_p(p-l)-\sum_{i=l}^{p-1}x_i)\\
+w(l,r)&=w(l,r-1)+x_r-x_p\\
+w(l,r)&=w(l+1,r)+x_p-x_l\\
+\end{aligned}
+\] 可以在 DP 转移前 \(\mathcal{O}(n^2)\)
+递推，也可以使用前缀和每次转移时 \(\mathcal{O}(1)\) 计算。
+
+同时 DP 递推式有 \[
+\operatorname{dp}[i][j]=
+\left\{
+\begin{array}{ll}
+\min\limits_{1\le k\le i}\{\operatorname{dp}[k-1][j-1]+w(k,i)\},&\text{if } i\neq0,j\neq0\\
+1,&\text{if }i=0 j=0\\
+0,&\text{otherwise}
+\end{array}
+\right.
+\] 直接递推是 \(\mathcal{O}(n^2k)\) 的，不能接受。发现 \[
+\begin{aligned}
+w(l,r)+w(l+1,r-1)&=2w(l+1,r-1)+x_r-x_l\\
+w(l+1,r)+w(l,r-1)&=2w(l+1,r-1)+x_r-x_l-(x_{\lfloor \frac{l+r+1}{2}\rfloor}-x_{\lfloor \frac{l+r-1}{2}\rfloor})
+\end{aligned}
+\] 因为 \(x\) 递增，有
+\((x_{\lfloor \frac{l+r+1}{2}\rfloor}-x_{\lfloor \frac{l+r-1}{2}\rfloor})\ge0\)，所以
+\(w(l,r)+w(l+1,r-1)\ge w(l+1,r)+w(l,r-1)\)，\(w\)
+满足四边形不等式，\(\operatorname{dp}\)
+满足四边形不等式。因此对转移时计算的区间进行优化就能达到
+\(\mathcal{O}(nk)\) 的时间复杂度。
+
+\subsection{代码实现}
+
+8.cpp

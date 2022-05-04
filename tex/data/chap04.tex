@@ -1,73 +1,217 @@
 % !TeX root = ../thuthesis-example.tex
 
-\chapter{引用文献的标注}
+\chapter{单调队列优化动态规划}
 
-模板支持 BibTeX 和 BibLaTeX 两种方式处理参考文献。
-下文主要介绍 BibTeX 配合 \pkg{natbib} 宏包的主要使用方法。
+\section{单调队列}
+
+队列是一种先进先出的数据结构，其队尾可加入元素，队首可取出或弹出元素。单调队列则是在队列的基础上，让队尾可以弹出元素以使队列中从队首到队尾相邻元素均满足定义的偏序关系。在信息学竞赛中，这样的元素多为二元组或三元组，其中一维为数组下标。
+
+如经典问题``滑动窗口''中，题目给定一长度为 \(n\) 的数组 \(a\)，定义
+\(s_i=\min_{j\in(\max(1,i-k),i]} a_j\)，要求出对于任意 \(i\in[1,n],s_i\)
+的值。
+
+较为常用的解决区间最值问题的数据结构，如线段树、树状数组、ST
+表等，均需要 \(\mathcal{O}(n\log n)\) 的时间复杂度。
+
+使用单调队列，则可做到 \(\mathcal{O}(n)\) 的时间复杂度和空间复杂度。
+
+具体而言，维护二元组 \((a_i,i)\) 使队列中元素满足严格偏序关系
+\(\le\{((x_1,y_1),(x_2,y_2))\mid x_1 < x_2\land y_1 < y_2\}\)，下标
+\(i\) 从小到大遍历 \([1,n]\) 时，加入元素
+\((a_i,i)\)。若加入元素前队列非空且队尾元素不满足偏序关系，则一直弹出队尾元素直到队列为空或队尾元素满足偏序关系为止。加入元素
+\((a_i,i)\) 后，在队首元素第二维 \(id\) 不满足 \(id > i-k\)
+时弹出队首元素直至满足条件。因为第二维加入时单调递增，第一维在队列中也单调递增，所以队列中最小值在队首。而在弹出队首操作中满足了队列中所有元素均在
+\((i-k,i]\) 中，且先前在队列中且第二维属于 \((i-k,i]\)
+的不会因为队首弹出操作在此之前弹出，因此队首元素 \((a_{h},h)\)
+的第一维即为 \(s_i\).
+
+\section{适用问题类型}
+
+使用单调队列优化 DP
+时，往往是题目中有一些条件使得在没有该条件时的最优决策不合法了，因此使用单调队列排除不可能在接下来成为最优决策点的元素，保留其余元素。
+
+\section{应用实例一}
+
+\subsection{题目来源}
+
+题目名称：PTA-Little Bird.
+
+题目选自：POI2014.
+
+\subsection{题目描述}
+
+给定 \(n\) 颗树，第 \(i\) 颗树的高度为 \(h_i\)，有一只鸟要从第 \(1\)
+颗树飞到第 \(n\) 颗树，它的初始劳累值为 \(0\).
+
+如果这只鸟当前在第 \(i\) 颗树，那么它接下来可以飞到
+\(i+1,i+2,\dots,i+k\) 颗树。
+
+如果它从一颗高度为 \(h_i\) 的树飞到高度为 \(h_j\) 的树，且
+\(h_i\le h_j\)，那么它的劳累值会 \(+1\)，反之若 \(h_i > h_j\)
+那么劳累值不变。
+
+有 \(Q\) 次询问，每次询问指定 \(k\)，求这只鸟从第 \(1\) 颗树飞到第 \(n\)
+颗树的劳累值最少是多少。
+
+数据范围：\(2\le n\le 10^6\)，\(1\le Q\le 25\).
+
+\subsection{解题思路}
+
+设 \(\operatorname{dp}[i]\) 表示从第 \(1\) 颗树飞到第 \(i\)
+颗树所需的最小劳累值，那么转移有 \[
+\operatorname{dp}[i]=\min_{j\in[\max(1,i-k),i]}(\operatorname{dp}[j]+[h[j]\le h[i]])
+\] 其中 \([p]\) 表示若命题 \(p\) 为真则值为 \(1\)，否则为
+\(0\)。这样直接转移是 \(\mathcal{O}(Qn^2)\) 的，考虑优化。
+
+设 \(m_i=\min_{j\in[\max(1,i-k),i]}\operatorname{dp}[j]\)，不难看出有 \[
+\min_{j\in[\max(1,i-k),i]\land \operatorname{dp}[j]=m_i}(\operatorname{dp}[j]+[h[j]\le h[i]])\le\min_{j\in[\max(1,i-k),i]\land \operatorname{dp}[j] > m_i}(\operatorname{dp}[j]+[h[j]\le h[i]])
+\] 因为 \[
+\text{左式}\le\min_{j\in[\max(1,i-k),i]\land \operatorname{dp}[j]=m_i}(\operatorname{dp}[j]+1)\le m_i+1
+\]
+
+\[
+\text{右式}\ge\min_{j\in[\max(1,i-k),i]\land \operatorname{dp}[j] > m_i}(\operatorname{dp}[j])\ge m_i+1
+\]
+
+于是得证。
+
+因此考虑在每次询问时用类似``滑动窗口''的方式，\(\mathcal{O}(n)\) 维护
+\([\max(1,i-k),i]\) 中 \(dp\) 最小值所对应下标。考虑到要取最小值，还要
+\(+[h[j]\le h[i]]\)，对下标递增，\(\operatorname{dp}\)
+值相同的元素，在队列中需要使其 \(h\)
+值递减。这样取到的队首元素就是合法转移点中，\(\operatorname{dp}\)
+值最小且 \(h\) 最大的元素。
+
+整体时间复杂度为 \(\mathcal{O}(qn)\)，空间复杂度为 \(\mathcal{O}(n)\).
+
+\subsection{代码实现}
+
+4.cpp
+
+\section{应用实例二}
+
+\subsection{题目来源}
+
+题目名称：Pogo-Cow S.
+
+题目选自：USACO 2013 November Contest.
+
+\subsection{题目描述}
+
+给定 \(n\) 个目标点，每个目标点在数轴上有一个坐标 \(x_i\)
+和一个可获得分数 \(p_i\)。
+
+定义一个长为 \(|p|\) 的序列 \(p\) 合法当且仅当 \(x_{p_i}\) 关于 \(i\)
+单调递增或单调递减，且
+\(\forall i\in[1,|p|-2],|x_{p_i}-x_{p_{i+1}}|\le |x_{p_{i+1}}-x_{p_{i+2}}|\)，该序列权值为
+\(\sum_{i\in[1,|p|]}w_{p_i}\)。
+
+试求出所有合法序列的权值的最大值。
+
+数据范围：\(1\le n\le 10^3\).
+
+\subsection{解题思路}
+
+单调递减只需令所有 \(x_i\leftarrow -x_i\)
+就可以归约到单调递增的情况，因此下文将仅讨论序列中 \(x_{p_i}\)
+单调递增的情况。
+
+首先将目标点按 \(x\) 排序，记录 \(\operatorname{dp}[i][\Delta x]\)
+表示满足最后一个值为 \(i\) 且倒数第二个值与最后一个值对应目标点 \(x\)
+差值为 \(\Delta x\) 的序列中序列权值的最大值，那么应当有 \[
+dp[i][x_i-x_j]=\max_{j\in[1,i)\land x'\le x_i-x_j}(\operatorname{dp}[j][x'])+p_i
+\] 但就算是离散地考虑 \(x'\) 一维，这样转移也是 \(\mathcal{O}(n^3)\)
+的，考虑优化。
+
+发现若对于同一 \(i\)，有 \(a\le b\) 且
+\(\operatorname{dp}[i][a]\ge \operatorname{dp}[i][b]\)，那么忽略 \(b\)
+不会对任何 \(\operatorname{dp}[i][x]\) 有影响。而对同一 \(j\)，在 \(i\)
+单调递增的情况下，限制产生贡献的 \(\operatorname{dp}[j][x]\) 的 \(x\)
+值单调不减。因此考虑对每一个 \(i\) 建立一个单调队列，每个元素
+\((\Delta x,\operatorname{dp}[i][\Delta x])\)
+两维均单调递增。在队列内元素个数大于
+\(1\)，且从队首数第二个元素第一维满足限制时，弹出队首元素。这样能够找到可能对
+\(\operatorname{dp}[i][x_i-x_j]\) 产生贡献的最大的满足限制
+\(x'\le x_i-x_j\) 的 \(x'\)，对应 \(\operatorname{dp}[i][x']\)
+也是满足限制下的最大值。
+
+这样一共需要 \(\mathcal{O}(n)\) 个单调队列，每个队列中元素至多
+\(\mathcal{O}(n)\) 个，转移整体时间复杂度为
+\(\mathcal{O}(n^2)\)，空间复杂度为 \(\mathcal{O}(n^2)\)。
+
+\subsection{代码实现}
+
+5.cpp
 
 
-\section{顺序编码制}
+% \chapter{引用文献的标注}
 
-在顺序编码制下，默认的 \cs{cite} 命令同 \cs{citep} 一样，序号置于方括号中，
-引文页码会放在括号外。
-统一处引用的连续序号会自动用短横线连接。
-
-\thusetup{
-  cite-style = super,
-}
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\cite{zhangkun1994}|               & \cite{zhangkun1994}               \\
-  \verb|\citet{zhangkun1994}|              & \citet{zhangkun1994}              \\
-  \verb|\citep{zhangkun1994}|              & \citep{zhangkun1994}              \\
-  \verb|\cite[42]{zhangkun1994}|           & \cite[42]{zhangkun1994}           \\
-  \verb|\cite{zhangkun1994,zhukezhen1973}| & \cite{zhangkun1994,zhukezhen1973} \\
-\end{tabular}
+% 模板支持 BibTeX 和 BibLaTeX 两种方式处理参考文献。
+% 下文主要介绍 BibTeX 配合 \pkg{natbib} 宏包的主要使用方法。
 
 
-也可以取消上标格式，将数字序号作为文字的一部分。
-建议全文统一使用相同的格式。
+% \section{顺序编码制}
 
-\thusetup{
-  cite-style = inline,
-}
-\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
-  \verb|\cite{zhangkun1994}|               & \cite{zhangkun1994}               \\
-  \verb|\citet{zhangkun1994}|              & \citet{zhangkun1994}              \\
-  \verb|\citep{zhangkun1994}|              & \citep{zhangkun1994}              \\
-  \verb|\cite[42]{zhangkun1994}|           & \cite[42]{zhangkun1994}           \\
-  \verb|\cite{zhangkun1994,zhukezhen1973}| & \cite{zhangkun1994,zhukezhen1973} \\
-\end{tabular}
+% 在顺序编码制下，默认的 \cs{cite} 命令同 \cs{citep} 一样，序号置于方括号中，
+% 引文页码会放在括号外。
+% 统一处引用的连续序号会自动用短横线连接。
+
+% \thusetup{
+%   cite-style = super,
+% }
+% \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+%   \verb|\cite{zhangkun1994}|               & \cite{zhangkun1994}               \\
+%   \verb|\citet{zhangkun1994}|              & \citet{zhangkun1994}              \\
+%   \verb|\citep{zhangkun1994}|              & \citep{zhangkun1994}              \\
+%   \verb|\cite[42]{zhangkun1994}|           & \cite[42]{zhangkun1994}           \\
+%   \verb|\cite{zhangkun1994,zhukezhen1973}| & \cite{zhangkun1994,zhukezhen1973} \\
+% \end{tabular}
+
+
+% 也可以取消上标格式，将数字序号作为文字的一部分。
+% 建议全文统一使用相同的格式。
+
+% \thusetup{
+%   cite-style = inline,
+% }
+% \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+%   \verb|\cite{zhangkun1994}|               & \cite{zhangkun1994}               \\
+%   \verb|\citet{zhangkun1994}|              & \citet{zhangkun1994}              \\
+%   \verb|\citep{zhangkun1994}|              & \citep{zhangkun1994}              \\
+%   \verb|\cite[42]{zhangkun1994}|           & \cite[42]{zhangkun1994}           \\
+%   \verb|\cite{zhangkun1994,zhukezhen1973}| & \cite{zhangkun1994,zhukezhen1973} \\
+% \end{tabular}
 
 
 
-\section{著者-出版年制}
+% \section{著者-出版年制}
 
-著者-出版年制下的 \cs{cite} 跟 \cs{citet} 一样。
+% 著者-出版年制下的 \cs{cite} 跟 \cs{citet} 一样。
 
-\thusetup{
-  cite-style = author-year,
-}
-\begin{tabular}{l@{\space$\Rightarrow$\space}l}
-  \verb|\cite{zhangkun1994}|                & \cite{zhangkun1994}                \\
-  \verb|\citet{zhangkun1994}|               & \citet{zhangkun1994}               \\
-  \verb|\citep{zhangkun1994}|               & \citep{zhangkun1994}               \\
-  \verb|\cite[42]{zhangkun1994}|            & \cite[42]{zhangkun1994}            \\
-  \verb|\citep{zhangkun1994,zhukezhen1973}| & \citep{zhangkun1994,zhukezhen1973} \\
-\end{tabular}
+% \thusetup{
+%   cite-style = author-year,
+% }
+% \begin{tabular}{l@{\space$\Rightarrow$\space}l}
+%   \verb|\cite{zhangkun1994}|                & \cite{zhangkun1994}                \\
+%   \verb|\citet{zhangkun1994}|               & \citet{zhangkun1994}               \\
+%   \verb|\citep{zhangkun1994}|               & \citep{zhangkun1994}               \\
+%   \verb|\cite[42]{zhangkun1994}|            & \cite[42]{zhangkun1994}            \\
+%   \verb|\citep{zhangkun1994,zhukezhen1973}| & \citep{zhangkun1994,zhukezhen1973} \\
+% \end{tabular}
 
-\vskip 2ex
-\thusetup{
-  cite-style = super,
-}
-注意，引文参考文献的每条都要在正文中标注
-\cite{zhangkun1994,zhukezhen1973,dupont1974bone,zhengkaiqing1987,%
-  jiangxizhou1980,jianduju1994,merkt1995rotational,mellinger1996laser,%
-  bixon1996dynamics,mahui1995,carlson1981two,taylor1983scanning,%
-  taylor1981study,shimizu1983laser,atkinson1982experimental,%
-  kusch1975perturbations,guangxi1993,huosini1989guwu,wangfuzhi1865songlun,%
-  zhaoyaodong1998xinshidai,biaozhunhua2002tushu,chubanzhuanye2004,%
-  who1970factors,peebles2001probability,baishunong1998zhiwu,%
-  weinstein1974pathogenic,hanjiren1985lun,dizhi1936dizhi,%
-  tushuguan1957tushuguanxue,aaas1883science,fugang2000fengsha,%
-  xiaoyu2001chubanye,oclc2000about,scitor2000project%
-}。
+% \vskip 2ex
+% \thusetup{
+%   cite-style = super,
+% }
+% 注意，引文参考文献的每条都要在正文中标注
+% \cite{zhangkun1994,zhukezhen1973,dupont1974bone,zhengkaiqing1987,%
+%   jiangxizhou1980,jianduju1994,merkt1995rotational,mellinger1996laser,%
+%   bixon1996dynamics,mahui1995,carlson1981two,taylor1983scanning,%
+%   taylor1981study,shimizu1983laser,atkinson1982experimental,%
+%   kusch1975perturbations,guangxi1993,huosini1989guwu,wangfuzhi1865songlun,%
+%   zhaoyaodong1998xinshidai,biaozhunhua2002tushu,chubanzhuanye2004,%
+%   who1970factors,peebles2001probability,baishunong1998zhiwu,%
+%   weinstein1974pathogenic,hanjiren1985lun,dizhi1936dizhi,%
+%   tushuguan1957tushuguanxue,aaas1883science,fugang2000fengsha,%
+%   xiaoyu2001chubanye,oclc2000about,scitor2000project%
+% }。
