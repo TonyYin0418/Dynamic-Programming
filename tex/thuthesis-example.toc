@@ -50,11 +50,11 @@
 \contentsline {section}{\numberline {6.2}四边形不等式对一维 DP 的优化}{16}{section.6.2}%
 \contentsline {section}{\numberline {6.3}四边形不等式对二维 DP 的优化}{16}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}对满足四边形不等式的证明}{17}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}对二维决策单调性的证明}{17}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.2}对二维决策单调性的证明}{18}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}对时间复杂度的证明}{18}{subsection.6.3.3}%
 \contentsline {section}{\numberline {6.4}应用实例一}{18}{section.6.4}%
 \contentsline {subsection}{\numberline {6.4.1}题目描述}{18}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}解题思路}{18}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.2}解题思路}{19}{subsection.6.4.2}%
 \contentsline {subsection}{\numberline {6.4.3}代码实现}{19}{subsection.6.4.3}%
 \contentsline {section}{\numberline {6.5}应用实例二}{19}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}题目来源}{19}{subsection.6.5.1}%

@@ -34,7 +34,7 @@ w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
 \section{四边形不等式对二维 DP 的优化}
 
 在优化二维 DP 时，DP 的形式则多为
-\(f[i][j]=\min_{i\le k < j}\{f[i][k]+f[k+1][j]+w(i,j)\}(i < j)\)，\(f[i][i]=0\)。
+\(f[i][j]=\min\limits_{i\le k < j}\{f[i][k]+f[k+1][j]+w(i,j)\}(i < j)\)，\(f[i][i]=0\)。
 
 不妨设令 \(f[i][j]\) 取得最小值的 \(k\) 为 \(d[i][j]\)，那么
 
@@ -75,19 +75,35 @@ w(l,r+1)+w(l+x+1,r)\ge w(l,r)+w(l+x+1,r+1)
 关于 \(f\) 满足四边形不等式的证明，考虑使用数学归纳法。
 
 当 \(r-l=1\) 时， \[
+\begin{array}{c}
 f[l][r+1]+f[l+1][r]=f[l][l+2]\ge w(l,l+2)\\
 f[l][r]+f[l+1][r+1]=f[l][l+1]+f[l+1][l+2]=w(l,l+1)+w(l+1,l+2)\\
 f[l][r+1]+f[l+1][r]\ge f[l][r]+f[l+1][r+1]
-\] 设在 \(r-l < k\) 时，\(f\) 满足四边形不等式。为方便起见，设
-\(x=d[l][r+1],y=d[l+1][r]\)，那么 \[
+\end{array}
+\]
+
+设在 \(r-l < k\) 时，\(f\) 满足四边形不等式。
+
+为方便起见，设 \(x=d[l][r+1],y=d[l+1][r]\)，那么： \[
 f[l][r+1]+f[l+1][r]=(f[l][x]+f[x+1][r+1]+w(l,r+1))+(f[l+1][y]+f[y+1][r]+w(l+1,r))\\
-f[l][r]+f[l+1][r+1]\le(f[l][x]+f[x+1][r]+w(l,r))+(f[l+1][y]+f[y+1][r+1]+w(l+1,r+1))
-\] 欲证 \(f[l][r+1]+f[l+1][r]\ge f[l][r]+f[l+1][r+1]\)，只需证 \[
-f[x+1][r+1]+f[y+1][r]+w(l,r+1)+w(l+1,r)\ge f[x+1][r]+f[y+1][r+1]+w(l,r)+w(l+1,r+1)
-\] 只需证 \[
+\]
+\[f[l][r]+f[l+1][r+1]\le(f[l][x]+f[x+1][r]+w(l,r))+(f[l+1][y]+f[y+1][r+1]+w(l+1,r+1))
+\]
+
+欲证: \[f[l][r+1]+f[l+1][r]\ge f[l][r]+f[l+1][r+1]
+\]
+
+只需证： \[f[x+1][r+1]+f[y+1][r]+w(l,r+1)+w(l+1,r)\ge f[x+1][r]+f[y+1][r+1]+w(l,r)+w(l+1,r+1)
+\]
+
+只需证： \[
+\begin{array}{c}
 f[x+1][r+1]+f[y+1][r]\ge f[x+1][r]+f[y+1][r+1]\\
 w(l,r+1)+w(l+1,r)\ge w(l,r)+w(l+1,r+1)
-\] 两式分别可以由归纳假设以及 \(w\) 满足四边形不等式得到，即证 \(f\)
+\end{array}
+\]
+
+两式分别可以由归纳假设以及 \(w\) 满足四边形不等式得到，即证 \(f\)
 满足四边形不等式。
 
 \subsection{对二维决策单调性的证明}
@@ -111,10 +127,13 @@ f[i][k]+f[k+1][j-1]\ge f[i][x]+f[x+1][j-1]
 \subsection{对时间复杂度的证明}
 
 关于时间复杂度是 \(\mathcal{O}(n^2)\) 的证明，考虑 \[
-\sum_{i=1}^{n-1}\sum_{j=i+1}^n(d[i+1][j]-d[i][j-1])\\
-=\sum_{i=2}^n\sum_{j=i+1}^nd[i][j]-\sum_{i=1}^{n-1}\sum_{j=i}^{n-1}d[i][j]\\
-=\sum_{i=1}^{n-1}d[i][n]-\sum_{j=2}^nd[1][j]-\sum_{i=1}^nd[i][i]
-\] 并且 \(d[i][j]\in[1,n]\)，因此
+\begin{aligned}
+&\sum_{i=1}^{n-1}\sum_{j=i+1}^n(d[i+1][j]-d[i][j-1])\\
+=&\sum_{i=2}^n\sum_{j=i+1}^nd[i][j]-\sum_{i=1}^{n-1}\sum_{j=i}^{n-1}d[i][j]\\
+=&\sum_{i=1}^{n-1}d[i][n]-\sum_{j=2}^nd[1][j]-\sum_{i=1}^nd[i][i]
+\end{aligned}
+\]
+并且 \(d[i][j]\in[1,n]\)，因此
 \(\mathcal{O}(\sum_{i=1}^{n-1}\sum_{j=i+1}^n(d[i+1][j]-d[i][j-1]))=\mathcal{O}(n^2)\).
 
 \section{应用实例一}

@@ -1,16 +1,18 @@
 # Fdb version 3
-["bibtex thuthesis-example"] 1651673003 "thuthesis-example.aux" "thuthesis-example.bbl" "thuthesis-example" 1651673009
+["bibtex thuthesis-example"] 1651675632 "thuthesis-example.aux" "thuthesis-example.bbl" "thuthesis-example" 1651675656
   "./thuthesis-numeric.bst" 1647669388 45402 f1f821753e038309db8836206ea48776 ""
   "ref/refs.bib" 1647669388 10001 41cdddcd0d3c3155a2cc69ca952ced96 ""
-  "thuthesis-example.aux" 1651673007 11378 046ccda56c03f5374146d4035e4037b7 "xelatex"
+  "thuthesis-example.aux" 1651675654 11378 1c8335341eb598f6b987a169e5e3b3f0 "xelatex"
   (generated)
   "thuthesis-example.blg"
   "thuthesis-example.bbl"
-["xdvipdfmx"] 1651673008 "thuthesis-example.xdv" "thuthesis-example.pdf" "thuthesis-example" 1651673009
-  "thuthesis-example.xdv" 1651673007 656628 479e262f3c63a531fc17af99bb07962e "xelatex"
+["xdvipdfmx"] 1651675655 "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv" "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.pdf" "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example" 1651675656
+  "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv" 1651675654 657096 9a08ce88e4e902f56efaf815ddcfb60e "xelatex"
   (generated)
-  "thuthesis-example.pdf"
-["xelatex"] 1651673004 "thuthesis-example.tex" "thuthesis-example.xdv" "thuthesis-example" 1651673009
+  "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.pdf"
+["xelatex"] 1651675651 "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.tex" "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv" "thuthesis-example" 1651675656
+  "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.aux" 1651675654 11378 1c8335341eb598f6b987a169e5e3b3f0 ""
+  "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.tex" 1651672984 2689 500b360dde101896a713c05523c97091 ""
   "d:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1637227545 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1637228913 1528 7e12f4c0fcf5a072cebdcfbfc610f54c ""
   "d:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1637227398 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -152,20 +154,22 @@
   "data/chap03.tex" 1651669976 8008 ce37cf1397ddd499b06aa7d05c4fa36d ""
   "data/chap04.tex" 1651671104 9556 61f6d8e0c5e6b920f132a7c0c5c48143 ""
   "data/chap05.tex" 1651672783 3101 7aed3debff921630f428c489a7d6a1a5 ""
-  "data/chap06.tex" 1651671320 7503 c73778fbf1b8f8cdc1a995756db788e1 ""
+  "data/chap06.tex" 1651675649 7621 2d5a92165530ca8d07e78f9dc82d7ed4 ""
   "data/chap07.tex" 1651671427 4916 814f7adb4aff8acad180487748fc426a ""
   "data/chap08.tex" 1651671408 999 5c656e2387206f4bd9fc2c1920af984a ""
   "fig/fig1.pdf" 1651672141 53701 0880f2e1ce2785ab345a3ac785c62a5e ""
   "thusetup.tex" 1651672388 4840 b93109ff8f8d6f9514fe4b7d6ac0eabb ""
-  "thuthesis-example.aux" 1651673007 11378 046ccda56c03f5374146d4035e4037b7 "xelatex"
-  "thuthesis-example.bbl" 1651673004 380 df8c4f4f41d6dc077f9019104a98461e "bibtex thuthesis-example"
-  "thuthesis-example.out" 1651673007 9597 6d6f963fb4268a5538fca443a0972216 "xelatex"
+  "thuthesis-example.aux" 1651675654 11378 1c8335341eb598f6b987a169e5e3b3f0 "xelatex"
+  "thuthesis-example.bbl" 1651675632 380 df8c4f4f41d6dc077f9019104a98461e "bibtex thuthesis-example"
+  "thuthesis-example.out" 1651675654 9597 6d6f963fb4268a5538fca443a0972216 "xelatex"
   "thuthesis-example.tex" 1651672984 2689 500b360dde101896a713c05523c97091 ""
-  "thuthesis-example.toc" 1651673007 6221 9c1028c9fe964adffbe61253a183feb7 "xelatex"
-  "thuthesis.cls" 1651672984 108162 164ae965650e00e99e762cfdf3b35d9f ""
+  "thuthesis-example.toc" 1651675654 6221 95aca4ccadee409c0561cd10533da195 "xelatex"
+  "thuthesis.cls" 1651675650 108162 164ae965650e00e99e762cfdf3b35d9f ""
   (generated)
+  "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.log"
+  "c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv"
+  "thuthesis-example.out"
+  "thuthesis-example.log"
   "thuthesis-example.xdv"
   "thuthesis-example.aux"
   "thuthesis-example.toc"
-  "thuthesis-example.log"
-  "thuthesis-example.out"
