@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  4 MAY 2022 22:47
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  6 MAY 2022 21:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1187,7 +1187,23 @@ LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
 (Font)              scaled to size 8.43059pt on input line 21.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
 (Font)              scaled to size 6.02185pt on input line 21.
- (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/abstract.tex
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf>
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf>
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf, page 1>
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf, page 1>
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf, page 1>
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf, page 1>
+File: data/Cover.pdf Graphic file (type pdf)
+<use data/Cover.pdf, page 1>
+ [1
+
+] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/abstract.tex
 
 Package fontspec Info: Could not resolve font "SimHei/I" (it probably doesn't
 (fontspec)             exist).
@@ -1218,7 +1234,6 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 
 
 
-
 ]) [2
 
 
@@ -1229,11 +1244,10 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 \tf@toc=\write4
 \openout4 = `thuthesis-example.toc'.
 
- [5] [6
-
-] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap01.tex
+ [5] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap01.tex
 第1章
 ) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap02.tex [1
+
 
 ]
 第2章
@@ -1357,12 +1371,12 @@ Package rerunfilecheck Info: File `thuthesis-example.out' has not changed.
 (rerunfilecheck)             Checksum: 6D6F963FB4268A5538FCA443A0972216;9597.
  ) 
 Here is how much of TeX's memory you used:
- 28480 strings out of 476919
- 570226 string characters out of 5825423
- 1034187 words of memory out of 5000000
- 47917 multiletter control sequences out of 15000+600000
+ 28490 strings out of 476919
+ 570418 string characters out of 5825423
+ 1034201 words of memory out of 5000000
+ 47924 multiletter control sequences out of 15000+600000
  410493 words of font info for 169 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 114i,12n,133p,1475b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,17n,133p,1475b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv (31 pages, 657096 bytes).
+Output written on c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv (31 pages, 657476 bytes).
