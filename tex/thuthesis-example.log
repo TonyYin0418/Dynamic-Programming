@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  6 MAY 2022 21:39
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  7 MAY 2022 08:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -493,30 +493,262 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \fb@frh=\dimen289
 \FrameRule=\dimen290
 \FrameSep=\dimen291
+) (d:/texlive/2021/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
+ (d:/texlive/2021/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
+ (d:/texlive/2021/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count323
+\FV@InFile=\read2
+\FV@TabBox=\box65
+\c@FancyVerbLine=\count324
+\FV@StepNumber=\count325
+\FV@OutFile=\write3
+) (d:/texlive/2021/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+ (d:/texlive/2021/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)) (d:/texlive/2021/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
+\linenopenalty=\count326
+\output=\toks33
+\linenoprevgraf=\count327
+\linenumbersep=\dimen292
+\linenumberwidth=\dimen293
+\c@linenumber=\count328
+\c@pagewiselinenumber=\count329
+\c@LN@truepage=\count330
+\c@internallinenumber=\count331
+\c@internallinenumbers=\count332
+\quotelinenumbersep=\dimen294
+\bframerule=\dimen295
+\bframesep=\dimen296
+\bframebox=\box66
+LaTeX Info: Redefining \\ on input line 3056.
+)
+\c@FV@TrueTabGroupLevel=\count333
+\c@FV@TrueTabCounter=\count334
+\FV@TabBox@Group=\box67
+\FV@TmpLength=\skip81
+\c@FV@HighlightLinesStart=\count335
+\c@FV@HighlightLinesStop=\count336
+\FV@LoopCount=\count337
+\FV@NCharsBox=\box68
+\FV@BreakIndent=\dimen297
+\FV@BreakIndentNChars=\count338
+\FV@BreakSymbolSepLeft=\dimen298
+\FV@BreakSymbolSepLeftNChars=\count339
+\FV@BreakSymbolSepRight=\dimen299
+\FV@BreakSymbolSepRightNChars=\count340
+\FV@BreakSymbolIndentLeft=\dimen300
+\FV@BreakSymbolIndentLeftNChars=\count341
+\FV@BreakSymbolIndentRight=\dimen301
+\FV@BreakSymbolIndentRightNChars=\count342
+\c@FancyVerbLineBreakLast=\count343
+\FV@LineBox=\box69
+\FV@LineIndentBox=\box70
+\FV@LineWidth=\dimen302
+) (d:/texlive/2021/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (d:/texlive/2021/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (d:/texlive/2021/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (d:/texlive/2021/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (d:/texlive/2021/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+ (d:/texlive/2021/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (d:/texlive/2021/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)) (d:/texlive/2021/texmf-dist/tex/generic/xstring/xstring.sty (d:/texlive/2021/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count344
+Invalid UTF-8 byte or sequence at line 35 replaced by U+FFFD.
+\decimalpart=\count345
+Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 83 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 86 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 102 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 114 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 120 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 125 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 183 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 184 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 189 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 189 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 190 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 190 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 193 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 221 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 221 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 266 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 284 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 295 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 300 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 300 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 302 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 303 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 333 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 406 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 406 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 409 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 428 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 434 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 457 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 457 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 464 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 464 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 466 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 466 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 586 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 586 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 588 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 588 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 595 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 597 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 599 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 602 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 605 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 605 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 610 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 615 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 632 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 632 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 633 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 635 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 637 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 647 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 653 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 678 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 700 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 705 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 719 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 732 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 732 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 741 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 741 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 742 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 742 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 762 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 773 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 773 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 797 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 797 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 810 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 824 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 824 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 831 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 838 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 838 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 846 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 846 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 861 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 862 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 864 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 864 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 908 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 909 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 909 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 934 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 934 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 936 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 936 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 940 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 940 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 962 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 962 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 964 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 965 replaced by U+FFFD.
+Invalid UTF-8 byte or sequence at line 1006 replaced by U+FFFD.
+)
+Package: xstring 2019/02/06 v1.83 String manipulations (CT)
+) (d:/texlive/2021/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count346
+\float@exts=\toks34
+\float@box=\box71
+\@float@everytoks=\toks35
+\@floatcapt=\box72
+)
+\minted@appexistsfile=\read3
+\minted@bgbox=\box73
+\minted@code=\write4
+\c@minted@FancyVerbLineTemp=\count347
+\c@minted@pygmentizecounter=\count348
+\@float@every@listing=\toks36
+\c@listing=\count349
 ) (d:/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks33
-\thm@bodyfont=\toks34
-\thm@headfont=\toks35
-\thm@notefont=\toks36
-\thm@headpunct=\toks37
-\thm@preskip=\skip81
-\thm@postskip=\skip82
-\thm@headsep=\skip83
-\dth@everypar=\toks38
+\thm@style=\toks37
+\thm@bodyfont=\toks38
+\thm@headfont=\toks39
+\thm@notefont=\toks40
+\thm@headpunct=\toks41
+\thm@preskip=\skip82
+\thm@postskip=\skip83
+\thm@headsep=\skip84
+\dth@everypar=\toks42
 )
-\c@assumption=\count323
-\c@definition=\count324
-\c@proposition=\count325
-\c@lemma=\count326
-\c@theorem=\count327
-\c@axiom=\count328
-\c@corollary=\count329
-\c@exercise=\count330
-\c@example=\count331
-\c@remark=\count332
-\c@problem=\count333
-\c@conjecture=\count334
+\c@assumption=\count350
+\c@definition=\count351
+\c@proposition=\count352
+\c@lemma=\count353
+\c@theorem=\count354
+\c@axiom=\count355
+\c@corollary=\count356
+\c@exercise=\count357
+\c@example=\count358
+\c@remark=\count359
+\c@problem=\count360
+\c@conjecture=\count361
 
 Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             New Roman' with options [Ligatures=TeX].
@@ -633,13 +865,13 @@ Package fontspec Info: Font family 'CourierNew(0)' created for font 'Courier
 Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
  (d:/texlive/2021/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
 Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
-\g__um_fam_int=\count335
-\g__um_fonts_used_int=\count336
-\l__um_primecount_int=\count337
+\g__um_fam_int=\count362
+\g__um_fonts_used_int=\count363
+\l__um_primecount_int=\count364
 \g__um_primekern_muskip=\muskip19
  (d:/texlive/2021/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)))
-LaTeX Info: Redefining \boldsymbol on input line 122.
-LaTeX Info: Redefining \mathellipsis on input line 122.
+LaTeX Info: Redefining \boldsymbol on input line 123.
+LaTeX Info: Redefining \mathellipsis on input line 123.
 
 Package fontspec Info: Font family 'NewCMMath-Book(0)' created for font
 (fontspec)             'NewCMMath-Book' with options
@@ -665,13 +897,13 @@ Package fontspec Info: Font family 'NewCMMath-Book(1)' created for font
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 122.
+(Font)              `operators' in the math version `normal' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/NewCMMath-Book(1)/m/n on input line 122.
+(Font)                  OT1/cmr/m/n --> TU/NewCMMath-Book(1)/m/n on input line 123.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 122.
+(Font)              `operators' in the math version `bold' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/NewCMMath-Book(1)/b/n on input line 122.
+(Font)                  OT1/cmr/bx/n --> TU/NewCMMath-Book(1)/b/n on input line 123.
 
 Package fontspec Info: NewCMMath-Book scale = 1.0001.
 
@@ -718,13 +950,13 @@ Package fontspec Info: Font family 'NewCMMath-Book(2)' created for font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 122.
+(Font)              `symbols' in the math version `normal' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> TU/NewCMMath-Book(2)/m/n on input line 122.
+(Font)                  OMS/cmsy/m/n --> TU/NewCMMath-Book(2)/m/n on input line 123.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 122.
+(Font)              `symbols' in the math version `bold' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> TU/NewCMMath-Book(2)/b/n on input line 122.
+(Font)                  OMS/cmsy/b/n --> TU/NewCMMath-Book(2)/b/n on input line 123.
 
 Package fontspec Info: NewCMMath-Book scale = 0.9999.
 
@@ -759,13 +991,13 @@ Package fontspec Info: Font family 'NewCMMath-Book(3)' created for font
 (fontspec)             =7.227pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 122.
+(Font)              `largesymbols' in the math version `normal' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> TU/NewCMMath-Book(3)/m/n on input line 122.
+(Font)                  OMX/cmex/m/n --> TU/NewCMMath-Book(3)/m/n on input line 123.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 122.
+(Font)              `largesymbols' in the math version `bold' on input line 123.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> TU/NewCMMath-Book(3)/b/n on input line 122.
+(Font)                  OMX/cmex/m/n --> TU/NewCMMath-Book(3)/b/n on input line 123.
 
 Package fontspec Info: Font family 'NewCMMath-Book(4)' created for font
 (fontspec)             'NewCMMath-Book' with options
@@ -780,9 +1012,9 @@ Package fontspec Info: Font family 'NewCMMath-Book(4)' created for font
 
 \sym__um_fam1=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `normal'
-(Font)                  TU/NewCMMath-Book(4)/m/n --> TU/NewCMMath-Book(4)/m/n on input line 122.
+(Font)                  TU/NewCMMath-Book(4)/m/n --> TU/NewCMMath-Book(4)/m/n on input line 123.
 LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `bold'
-(Font)                  TU/NewCMMath-Book(4)/m/n --> TU/NewCMMath-Book(4)/b/n on input line 122.
+(Font)                  TU/NewCMMath-Book(4)/m/n --> TU/NewCMMath-Book(4)/b/n on input line 123.
 
 Package fontspec Info: Font family 'NewCM10(0)' created for font 'NewCM10'
 (fontspec)             with options [Extension = .otf,UprightFont =
@@ -810,11 +1042,11 @@ Package fontspec Info: Font family 'NewCM10(0)' created for font 'NewCM10'
 (fontspec)             <->"[NewCM10-BoldItalic.otf]/OT:script=latn;language=dflt;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  TU/NewCMMath-Book(1)/m/n --> TU/NewCM10(0)/m/n on input line 122.
+(Font)                  TU/NewCMMath-Book(1)/m/n --> TU/NewCM10(0)/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/NewCM10(0)/m/it on input line 122.
+(Font)                  OT1/cmr/m/it --> TU/NewCM10(0)/m/it on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/NewCM10(0)/b/n on input line 122.
+(Font)                  OT1/cmr/bx/n --> TU/NewCM10(0)/b/n on input line 123.
 
 Package fontspec Info: Font family 'NewCMSans10(0)' created for font
 (fontspec)             'NewCMSans10' with options [Extension =
@@ -841,9 +1073,9 @@ Package fontspec Info: Font family 'NewCMSans10(0)' created for font
 (fontspec)             <->"[NewCMSans10-BoldOblique.otf]/OT:script=latn;language=dflt;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/NewCMSans10(0)/m/n on input line 122.
+(Font)                  OT1/cmss/m/n --> TU/NewCMSans10(0)/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/NewCMSans10(0)/b/n on input line 122.
+(Font)                  OT1/cmss/bx/n --> TU/NewCMSans10(0)/b/n on input line 123.
 
 Package fontspec Info: Font family 'NewCMMono10(0)' created for font
 (fontspec)             'NewCMMono10' with options [Extension =
@@ -870,118 +1102,106 @@ Package fontspec Info: Font family 'NewCMMono10(0)' created for font
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/NewCMMono10(0)/m/n on input line 122.
+(Font)                  OT1/cmtt/m/n --> TU/NewCMMono10(0)/m/n on input line 123.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/NewCMMono10(0)/b/n on input line 122.
+(Font)                  OT1/cmtt/m/n --> TU/NewCMMono10(0)/b/n on input line 123.
  (d:/texlive/2021/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box65
+\@tempboxb=\box74
 ) (d:/texlive/2021/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip84
-\multirow@cntb=\count338
-\multirow@dima=\skip85
-\bigstrutjot=\dimen292
+\multirow@colwidth=\skip85
+\multirow@cntb=\count365
+\multirow@dima=\skip86
+\bigstrutjot=\dimen303
 ) (d:/texlive/2021/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
-\LTleft=\skip86
-\LTright=\skip87
-\LTpre=\skip88
-\LTpost=\skip89
-\LTchunksize=\count339
-\LTcapwidth=\dimen293
-\LT@head=\box66
-\LT@firsthead=\box67
-\LT@foot=\box68
-\LT@lastfoot=\box69
-\LT@cols=\count340
-\LT@rows=\count341
-\c@LT@tables=\count342
-\c@LT@chunks=\count343
-\LT@p@ftn=\toks39
+\LTleft=\skip87
+\LTright=\skip88
+\LTpre=\skip89
+\LTpost=\skip90
+\LTchunksize=\count366
+\LTcapwidth=\dimen304
+\LT@head=\box75
+\LT@firsthead=\box76
+\LT@foot=\box77
+\LT@lastfoot=\box78
+\LT@cols=\count367
+\LT@rows=\count368
+\c@LT@tables=\count369
+\c@LT@chunks=\count370
+\LT@p@ftn=\toks43
 ) (d:/texlive/2021/texmf-dist/tex/latex/algorithms/algorithm.sty
 Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (d:/texlive/2021/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count344
-\float@exts=\toks40
-\float@box=\box70
-\@float@everytoks=\toks41
-\@floatcapt=\box71
-)
-\@float@every@algorithm=\toks42
-\c@algorithm=\count345
+\@float@every@algorithm=\toks44
+\c@algorithm=\count371
 ) (d:/texlive/2021/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count346
-\c@ALC@line=\count347
-\c@ALC@rem=\count348
-\c@ALC@depth=\count349
-\ALC@tlm=\skip90
-\algorithmicindent=\skip91
+\c@ALC@unique=\count372
+\c@ALC@line=\count373
+\c@ALC@rem=\count374
+\c@ALC@depth=\count375
+\ALC@tlm=\skip91
+\algorithmicindent=\skip92
 ) (d:/texlive/2021/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
-\l__siunitx_tmp_box=\box72
-\l__siunitx_tmp_dim=\dimen294
-\l__siunitx_tmp_int=\count350
-\l__siunitx_number_mantissa_length_int=\count351
-\l__siunitx_number_uncert_length_int=\count352
-\l__siunitx_round_int=\count353
-\l__siunitx_process_decimal_int=\count354
-\l__siunitx_process_uncertainty_int=\count355
-\l__siunitx_process_fixed_int=\count356
-\l__siunitx_process_integer_min_int=\count357
-\l__siunitx_process_precision_int=\count358
-\l__siunitx_group_min_int=\count359
-\l__siunitx_angle_marker_box=\box73
-\l__siunitx_angle_unit_box=\box74
-\l__siunitx_angle_marker_dim=\dimen295
-\l__siunitx_angle_unit_dim=\dimen296
-\l__siunitx_unit_int=\count360
-\l__siunitx_unit_denominator_int=\count361
-\l__siunitx_unit_numerator_int=\count362
-\l__siunitx_unit_prefix_int=\count363
-\l__siunitx_unit_prefix_base_int=\count364
-\l__siunitx_unit_prefix_gram_int=\count365
-\l__siunitx_number_product_int=\count366
-\c__siunitx_one_fill_skip=\skip92
-\l__siunitx_table_unit_align_skip=\skip93
-\l__siunitx_table_exponent_dim=\dimen297
-\l__siunitx_table_integer_dim=\dimen298
-\l__siunitx_table_mantissa_dim=\dimen299
-\l__siunitx_table_marker_dim=\dimen300
-\l__siunitx_table_result_dim=\dimen301
-\l__siunitx_table_uncert_dim=\dimen302
-\l__siunitx_table_fill_pre_dim=\dimen303
-\l__siunitx_table_fill_post_dim=\dimen304
-\l__siunitx_table_fill_mid_dim=\dimen305
-\l__siunitx_table_pre_box=\box75
-\l__siunitx_table_post_box=\box76
-\l__siunitx_table_mantissa_box=\box77
-\l__siunitx_table_result_box=\box78
-\l__siunitx_table_number_align_skip=\skip94
-\l__siunitx_table_text_align_skip=\skip95
+\l__siunitx_tmp_box=\box79
+\l__siunitx_tmp_dim=\dimen305
+\l__siunitx_tmp_int=\count376
+\l__siunitx_number_mantissa_length_int=\count377
+\l__siunitx_number_uncert_length_int=\count378
+\l__siunitx_round_int=\count379
+\l__siunitx_process_decimal_int=\count380
+\l__siunitx_process_uncertainty_int=\count381
+\l__siunitx_process_fixed_int=\count382
+\l__siunitx_process_integer_min_int=\count383
+\l__siunitx_process_precision_int=\count384
+\l__siunitx_group_min_int=\count385
+\l__siunitx_angle_marker_box=\box80
+\l__siunitx_angle_unit_box=\box81
+\l__siunitx_angle_marker_dim=\dimen306
+\l__siunitx_angle_unit_dim=\dimen307
+\l__siunitx_unit_int=\count386
+\l__siunitx_unit_denominator_int=\count387
+\l__siunitx_unit_numerator_int=\count388
+\l__siunitx_unit_prefix_int=\count389
+\l__siunitx_unit_prefix_base_int=\count390
+\l__siunitx_unit_prefix_gram_int=\count391
+\l__siunitx_number_product_int=\count392
+\c__siunitx_one_fill_skip=\skip93
+\l__siunitx_table_unit_align_skip=\skip94
+\l__siunitx_table_exponent_dim=\dimen308
+\l__siunitx_table_integer_dim=\dimen309
+\l__siunitx_table_mantissa_dim=\dimen310
+\l__siunitx_table_marker_dim=\dimen311
+\l__siunitx_table_result_dim=\dimen312
+\l__siunitx_table_uncert_dim=\dimen313
+\l__siunitx_table_fill_pre_dim=\dimen314
+\l__siunitx_table_fill_post_dim=\dimen315
+\l__siunitx_table_fill_mid_dim=\dimen316
+\l__siunitx_table_pre_box=\box82
+\l__siunitx_table_post_box=\box83
+\l__siunitx_table_mantissa_box=\box84
+\l__siunitx_table_result_box=\box85
+\l__siunitx_table_number_align_skip=\skip95
+\l__siunitx_table_text_align_skip=\skip96
  (d:/texlive/2021/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2020-08-03 v1.12c Easy translation of strings in LaTeX
 )) (d:/texlive/2021/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip96
-\bibsep=\skip97
+\bibhang=\skip97
+\bibsep=\skip98
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count367
+\c@NAT@ctr=\count393
+) (d:/texlive/2021/texmf-dist/tex/latex/bibunits/bibunits.sty
+Package: bibunits 2004/05/12 v2.4 Multiple bibliographies in one document.
+\@bibunitaux=\write5
+\@bibunitauxcnt=\count394
 )) (d:/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
- (d:/texlive/2021/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (d:/texlive/2021/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
-) (d:/texlive/2021/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+ (d:/texlive/2021/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 ) (d:/texlive/2021/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
@@ -990,19 +1210,17 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (d:/texlive/2021/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen306
-\Hy@linkcounter=\count368
-\Hy@pagecounter=\count369
+\@linkdim=\dimen317
+\Hy@linkcounter=\count395
+\Hy@pagecounter=\count396
  (d:/texlive/2021/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
 ) (d:/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
 File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel languages
 ) (d:/texlive/2021/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (d:/texlive/2021/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count370
+\Hy@SavedSpaceFactor=\count397
  (d:/texlive/2021/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
 )
@@ -1014,17 +1232,17 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count371
+\c@Hy@tempcnt=\count398
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen307
+\XeTeXLinkMargin=\dimen318
  (d:/texlive/2021/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (d:/texlive/2021/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count372
-\Field@Width=\dimen308
-\Fld@charsize=\dimen309
+\Fld@menulength=\count399
+\Field@Width=\dimen319
+\Fld@charsize=\dimen320
 Package hyperref Info: Hyper figures OFF on input line 6075.
 Package hyperref Info: Link nesting OFF on input line 6080.
 Package hyperref Info: Hyper index ON on input line 6083.
@@ -1038,9 +1256,9 @@ LaTeX Info: Redefining \pageref on input line 6149.
 Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi package
 with kernel methods
 )
-\Hy@abspage=\count373
-\c@Item=\count374
-\c@Hfootnote=\count375
+\Hy@abspage=\count400
+\c@Item=\count401
+\c@Hfootnote=\count402
 )
 Package hyperref Info: Driver (autodetected): hxetex.
  (d:/texlive/2021/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -1048,11 +1266,11 @@ File: hxetex.def 2021-02-27 v7.00k Hyperref driver for XeTeX
  (d:/texlive/2021/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\pdfm@box=\box79
-\c@Hy@AnnotLevel=\count376
-\HyField@AnnotCount=\count377
-\Fld@listcount=\count378
-\c@bookmark@seq@number=\count379
+\pdfm@box=\box86
+\c@Hy@AnnotLevel=\count403
+\HyField@AnnotCount=\count404
+\Fld@listcount=\count405
+\c@bookmark@seq@number=\count406
  (d:/texlive/2021/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (d:/texlive/2021/texmf-dist/tex/latex/base/atveryend-ltx.sty
@@ -1063,46 +1281,50 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
-\Hy@SectionHShift=\skip98
+\Hy@SectionHShift=\skip99
 )
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 18.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 18.
-Package hyperref Info: Option `unicode' set `true' on input line 18.
-Package hyperref Info: Option `psdextra' set `true' on input line 18.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 19.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 19.
+Package hyperref Info: Option `unicode' set `true' on input line 19.
+Package hyperref Info: Option `psdextra' set `true' on input line 19.
  (d:/texlive/2021/texmf-dist/tex/latex/hyperref/puenc-greekbasic.def
 File: puenc-greekbasic.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (greek block) (HO)
 ) (d:/texlive/2021/texmf-dist/tex/latex/hyperref/psdextra.def
 File: psdextra.def 2021-02-27 v7.00k Hyperref: Additions to PDF string support
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 18.
-Package hyperref Info: Option `plainpages' set `false' on input line 18.
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 18.
-\c@thu@bookmark=\count380
- (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.aux)
+Package hyperref Info: Option `breaklinks' set `true' on input line 19.
+Package hyperref Info: Option `plainpages' set `false' on input line 19.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 19.
+\c@thu@bookmark=\count407
+runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > thuthesis-example.aex <nul: /p x=^%~$PATH:i>> thuthesis-example.aex)...executed.
+
+runsystem(del thuthesis-example.aex)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.aux (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/bu.aux))
 \openout1 = `thuthesis-example.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
  ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 21.
+LaTeX Info: Redefining \selectfont on input line 24.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1113,18 +1335,18 @@ LaTeX Info: Redefining \selectfont on input line 21.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
 * h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
-* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* v-part:(T,H,B)=(108.12054pt, 645.87758pt, 91.04872pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=426.79135pt
-* \textheight=674.33032pt
+* \textheight=645.87758pt
 * \oddsidemargin=13.08827pt
 * \evensidemargin=13.08827pt
-* \topmargin=-72.26997pt
-* \headheight=76.82234pt
-* \headsep=8.5359pt
+* \topmargin=-72.26956pt
+* \headheight=54.06006pt
+* \headsep=54.06006pt
 * \topskip=12.0pt
-* \footskip=22.76228pt
+* \footskip=41.25641pt
 * \marginparwidth=56.9055pt
 * \marginparsep=14.22636pt
 * \columnsep=10.0pt
@@ -1158,7 +1380,7 @@ File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 ) (d:/texlive/2021/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-Package hyperref Info: Link coloring OFF on input line 21.
+Package hyperref Info: Link coloring OFF on input line 24.
  (d:/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (d:/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1166,27 +1388,27 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (d:/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count381
+\c@section@level=\count408
 )
-LaTeX Info: Redefining \ref on input line 21.
-LaTeX Info: Redefining \pageref on input line 21.
-LaTeX Info: Redefining \nameref on input line 21.
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+LaTeX Info: Redefining \nameref on input line 24.
  (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out)
-\@outlinefile=\write3
-\openout3 = `thuthesis-example.out'.
+\@outlinefile=\write6
+\openout6 = `thuthesis-example.out'.
 
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
-(Font)              scaled to size 12.04628pt on input line 21.
+(Font)              scaled to size 12.04628pt on input line 24.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
-(Font)              scaled to size 8.4324pt on input line 21.
+(Font)              scaled to size 8.4324pt on input line 24.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
-(Font)              scaled to size 6.02315pt on input line 21.
+(Font)              scaled to size 6.02315pt on input line 24.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
-(Font)              scaled to size 12.0437pt on input line 21.
+(Font)              scaled to size 12.0437pt on input line 24.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
-(Font)              scaled to size 8.43059pt on input line 21.
+(Font)              scaled to size 8.43059pt on input line 24.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
-(Font)              scaled to size 6.02185pt on input line 21.
+(Font)              scaled to size 6.02185pt on input line 24.
 File: data/Cover.pdf Graphic file (type pdf)
 <use data/Cover.pdf>
 File: data/Cover.pdf Graphic file (type pdf)
@@ -1234,15 +1456,19 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 
 
 
-]) [2
+
+] [2
 
 
-] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.toc [3
+
+
+]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.toc [3
+
 
 
 ] [4])
-\tf@toc=\write4
-\openout4 = `thuthesis-example.toc'.
+\tf@toc=\write7
+\openout7 = `thuthesis-example.toc'.
 
  [5] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap01.tex
 第1章
@@ -1296,34 +1522,75 @@ Underfull \hbox (badness 2875) in paragraph at lines 144--147
 []\TU/SimSun(0)/m/n/12.045 判 断 两 个 状 态 $[][]$、| $[][]$ 是 否 可 以 作 为 合 法 的 相 邻 两 行 出 现，|  考 虑 判 断
  []
 
-[4] [5]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap03.tex [6]
-第3章
-[7
+[4]
+runsystem(pygmentize -S default -f latex -P commandprefix=PYG > thuthesis-example.out.pyg)...executed.
 
-]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap04.tex [8]
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg)
+runsystem(pygmentize -S default -f latex -P commandprefix=PYGdefault > thuthesis-example.out.pyg)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg)
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/1.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg
+LaTeX Font Info:    Font shape `TU/CourierNew(0)/m/n' will be
+(Font)              scaled to size 9.55533pt on input line 1.
+LaTeX Font Info:    Font shape `TU/CourierNew(0)/m/it' will be
+(Font)              scaled to size 9.55533pt on input line 2.
+LaTeX Font Info:    Font shape `TU/CourierNew(0)/b/n' will be
+(Font)              scaled to size 9.11327pt on input line 3.
+LaTeX Font Info:    Font shape `TU/CourierNew(0)/m/n' will be
+(Font)              scaled to size 6.90108pt on input line 14.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 6.52505pt on input line 14.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 14.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 6.52367pt on input line 14.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 14.
+ [5]) [6]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/2.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [7] [8])) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap03.tex [9]
+第3章
+[10
+
+]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/3.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [11])) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap04.tex [12]
 第4章
 
 Underfull \hbox (badness 7722) in paragraph at lines 18--27
 []\TU/SimSun(0)/m/n/12.045 具 体 而 言，|  维 护 二 元 组 $[][][][] [][]$ 使 队 列 中 元 素 满 足 严 格 偏 序 关 系 $[]
  []
 
-[9
+[13
 
 ]
 Overfull \hbox (12.67838pt too wide) detected at line 68
 [][][][][][] [] [][][][][] [] [][][][][][] [] [][][][][][] [] [][][][][] [] [][][][][][]
  []
 
-[10]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap05.tex [11] [12]
+[14]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/4.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg) [15]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/5.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [16])) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap05.tex [17]
 第5章
-[13
+[18
 
 ]
 File: fig/fig1.pdf Graphic file (type pdf)
 <use fig/fig1.pdf>
- [14]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap06.tex [15]
+ [19]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/6.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [20])) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap06.tex [21]
 第6章
-[16
+[22
 
 ]
 Overfull \hbox (1.43492pt too wide) detected at line 83
@@ -1345,38 +1612,67 @@ Overfull \hbox (60.40894pt too wide) detected at line 97
 [][][] [] [][][][] [] [][] [] [][][] [] [][][][][] [] [][][][] [] [] [][] [] [][][] [] [][] [][] [] [][][] [] [][][][][] [] [][][] [] [][][][] [] [][] [] [][][][] [][] [] [][][] [] [][] [] [] [][]
  []
 
-[17]
+[23]
 Overfull \hbox (22.5741pt too wide) detected at line 123
 [][][] [] [][][][][] [] [][][] [] [][][][] [] [][] [] [][][] [] [][][][] [] [][] [] [][][] [] [][][][][][] [][][][][][][] [] [][][] [] [][][][][] [] [][][][][][][] [] [][][] [] [][][][][]
  []
 
-[18] [19]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap07.tex [20]
+[24]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/7.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [25]) [26]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/8.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg)) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap07.tex [27]
 第7章
-[21
+[28
 
-] [22]) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap08.tex [23]
+]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/9.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [29])
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/10.cpp)...executed.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [30]
+
+LaTeX Font Warning: Font shape `TU/FangSong(0)/m/it' undefined
+(Font)              using `TU/FangSong(0)/m/n' instead on input line 51.
+
+[31])) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap08.tex [32]
 第8章
-) [24
+) [33
 
-] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.bbl
+]
+\openout5 = `bu.aux'.
+
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 14.
 
-) [25
+)
+
+Class thuthesis Warning: The appendices should be placed after statement on input line 77.
+
+[34
 
 
 
-] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.aux)
+] (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.aux (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/bu.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `thuthesis-example.out' has not changed.
-(rerunfilecheck)             Checksum: 6D6F963FB4268A5538FCA443A0972216;9597.
+(rerunfilecheck)             Checksum: FD3E3B4AC5AD3253A4F441084EB33CD1;9625.
+runsystem(del thuthesis-example.out.pyg)...executed.
+
  ) 
 Here is how much of TeX's memory you used:
- 28490 strings out of 476919
- 570418 string characters out of 5825423
- 1034201 words of memory out of 5000000
- 47924 multiletter control sequences out of 15000+600000
- 410493 words of font info for 169 fonts, out of 8000000 for 9000
+ 31290 strings out of 476919
+ 633158 string characters out of 5825423
+ 1149222 words of memory out of 5000000
+ 50620 multiletter control sequences out of 15000+600000
+ 411830 words of font info for 193 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 114i,17n,133p,1475b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,17n,133p,1683b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv (31 pages, 657476 bytes).
+Output written on c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv (40 pages, 902028 bytes).

@@ -1,6 +1,3 @@
-\contentsline {chapter}{摘\hskip 1em\relax 要}{I}{section*.1}%
-\contentsline {chapter}{Abstract}{II}{section*.3}%
-\contentsline {chapter}{目\hskip 1em\relax 录}{III}{section*.5}%
 \contentsline {chapter}{\numberline {第1章}引言}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {第2章}基于状态压缩的动态规划}{2}{chapter.2}%
 \contentsline {section}{\numberline {2.1}状态压缩}{2}{section.2.1}%
@@ -11,69 +8,69 @@
 \contentsline {subsection}{\numberline {2.4.2}题目描述}{4}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}解题思路}{4}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}代码实现}{5}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5}应用实例二}{5}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}题目来源}{5}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}题目描述}{5}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}解题思路}{5}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}代码实现}{6}{subsection.2.5.4}%
-\contentsline {chapter}{\numberline {第3章}按数位顺序进行的动态规划}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}适用问题类型}{7}{section.3.1}%
-\contentsline {section}{\numberline {3.2}算法简述}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}应用实例}{7}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}题目来源}{7}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}题目描述}{8}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}解题思路}{8}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}代码实现}{8}{subsection.3.3.4}%
-\contentsline {chapter}{\numberline {第4章}单调队列优化动态规划}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}单调队列}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}适用问题类型}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}应用实例一}{9}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}题目来源}{9}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}题目描述}{10}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}解题思路}{10}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}代码实现}{11}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}应用实例二}{11}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}题目来源}{11}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}题目描述}{11}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}解题思路}{11}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}代码实现}{12}{subsection.4.4.4}%
-\contentsline {chapter}{\numberline {第5章}斜率优化动态规划}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}斜率优化}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}适用问题类型}{13}{section.5.2}%
-\contentsline {section}{\numberline {5.3}应用实例}{13}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}题目来源}{13}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}题目描述}{13}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}解题思路}{13}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}代码实现}{15}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {第6章}四边形不等式优化动态规划}{16}{chapter.6}%
-\contentsline {section}{\numberline {6.1}四边形不等式}{16}{section.6.1}%
-\contentsline {section}{\numberline {6.2}四边形不等式对一维 DP 的优化}{16}{section.6.2}%
-\contentsline {section}{\numberline {6.3}四边形不等式对二维 DP 的优化}{16}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}对满足四边形不等式的证明}{17}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}对二维决策单调性的证明}{18}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}对时间复杂度的证明}{18}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}应用实例一}{18}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}题目描述}{18}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}解题思路}{19}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}代码实现}{19}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}应用实例二}{19}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}题目来源}{19}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}题目描述}{19}{subsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.5.3}解题思路}{19}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}代码实现}{20}{subsection.6.5.4}%
-\contentsline {chapter}{\numberline {第7章}CDQ 分治优化 DP}{21}{chapter.7}%
-\contentsline {section}{\numberline {7.1}CDQ 分治}{21}{section.7.1}%
-\contentsline {section}{\numberline {7.2}应用实例一}{21}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}题目描述}{21}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}解题思路}{21}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}代码实现}{22}{subsection.7.2.3}%
-\contentsline {section}{\numberline {7.3}应用实例二}{22}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}题目来源}{22}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}题目描述}{22}{subsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.3.3}解题思路}{22}{subsection.7.3.3}%
-\contentsline {subsection}{\numberline {7.3.4}代码实现}{23}{subsection.7.3.4}%
-\contentsline {chapter}{\numberline {第8章}结语}{24}{chapter.8}%
+\contentsline {section}{\numberline {2.5}应用实例二}{6}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}题目来源}{6}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}题目描述}{6}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}解题思路}{6}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}代码实现}{7}{subsection.2.5.4}%
+\contentsline {chapter}{\numberline {第3章}按数位顺序进行的动态规划}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}适用问题类型}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}算法简述}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}应用实例}{10}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}题目来源}{10}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}题目描述}{11}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}解题思路}{11}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}代码实现}{11}{subsection.3.3.4}%
+\contentsline {chapter}{\numberline {第4章}单调队列优化动态规划}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}单调队列}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}适用问题类型}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}应用实例一}{14}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}题目来源}{14}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}题目描述}{14}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}解题思路}{14}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}代码实现}{15}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}应用实例二}{15}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}题目来源}{15}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}题目描述}{15}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}解题思路}{16}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}代码实现}{16}{subsection.4.4.4}%
+\contentsline {chapter}{\numberline {第5章}斜率优化动态规划}{18}{chapter.5}%
+\contentsline {section}{\numberline {5.1}斜率优化}{18}{section.5.1}%
+\contentsline {section}{\numberline {5.2}适用问题类型}{18}{section.5.2}%
+\contentsline {section}{\numberline {5.3}应用实例}{18}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}题目来源}{18}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}题目描述}{18}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}解题思路}{18}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}代码实现}{20}{subsection.5.3.4}%
+\contentsline {chapter}{\numberline {第6章}四边形不等式优化动态规划}{22}{chapter.6}%
+\contentsline {section}{\numberline {6.1}四边形不等式}{22}{section.6.1}%
+\contentsline {section}{\numberline {6.2}四边形不等式对一维 DP 的优化}{22}{section.6.2}%
+\contentsline {section}{\numberline {6.3}四边形不等式对二维 DP 的优化}{23}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}对满足四边形不等式的证明}{23}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}对二维决策单调性的证明}{24}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}对时间复杂度的证明}{24}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}应用实例一}{25}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}题目描述}{25}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}解题思路}{25}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}代码实现}{25}{subsection.6.4.3}%
+\contentsline {section}{\numberline {6.5}应用实例二}{26}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}题目来源}{26}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}题目描述}{26}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}解题思路}{26}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}代码实现}{27}{subsection.6.5.4}%
+\contentsline {chapter}{\numberline {第7章}CDQ 分治优化 DP}{28}{chapter.7}%
+\contentsline {section}{\numberline {7.1}CDQ 分治}{28}{section.7.1}%
+\contentsline {section}{\numberline {7.2}应用实例一}{28}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}题目描述}{28}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}解题思路}{28}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}代码实现}{29}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}应用实例二}{30}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}题目来源}{30}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}题目描述}{30}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.3}解题思路}{30}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}代码实现}{31}{subsection.7.3.4}%
+\contentsline {chapter}{\numberline {第8章}结语}{33}{chapter.8}%
 \setcounter {tocdepth}{0}
-\contentsline {chapter}{参考文献}{25}{section*.10}%
+\contentsline {chapter}{参考文献}{34}{section*.10}%
 \setcounter {tocdepth}{0}
 \contentsfinish 

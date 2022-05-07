@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thuthesis-example.aux
 The style file: thuthesis-numeric.bst
+A level-1 auxiliary file: bu.aux
 I found no \citation commands---while reading file thuthesis-example.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 150 items from 100.
@@ -15,7 +16,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ref/refs.bib
 You've used 0 entries,
             5308 wiz_defined-function locations,
-            1030 strings with 7625 characters,
+            1031 strings with 7631 characters,
 and the built_in function-call counts, 86 in all, are:
 = -- 0
 > -- 0
