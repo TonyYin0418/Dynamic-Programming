@@ -116,7 +116,6 @@ f[i][k]+f[k+1][j]\ge f[i][x]+f[x+1][j]
 f[i+1][k]+f[k+1][j]\ge f[i+1][x]+f[x+1][j]
 \] 因此对于 \(f[i+1][j]\) 的转移，\(k\in [i,d[i][j])\) 一定不优于
 \(d[i][j]\)，有 \(d[i+1][j]\ge d[i][j]\)。
-
 类似的，设 \(x < k\le j\)，有 \[
 f[x+1][j]+f[k+1][j-1]\ge f[x+1][j-1]+f[k+1][j]\\
 f[i][k]+f[k+1][j]\ge f[i][x]+f[x+1][j]
@@ -167,7 +166,7 @@ w(l,r+1)+w(l+1,r)=w(l,r)+w(l+1,r+1)
 
 \subsection{代码实现}
 
-\inputminted[frame=lines, numbers=left, fontsize=\footnotesize, tabsize=4, breaklines=true]{c++}{code/7.cpp}
+\inputminted[frame=lines, numbers=left, fontsize=\scriptsize, tabsize=4, breaklines=true]{c++}{code/7.cpp}
 
 \section{应用实例二}
 
@@ -224,4 +223,4 @@ w(l+1,r)+w(l,r-1)&=2w(l+1,r-1)+x_r-x_l-(x_{\lfloor \frac{l+r+1}{2}\rfloor}-x_{\l
 
 \subsection{代码实现}
 
-\inputminted[frame=lines, numbers=left, fontsize=\footnotesize, tabsize=4, breaklines=true]{c++}{code/8.cpp}
+\inputminted[frame=lines, numbers=left, fontsize=\scriptsize, tabsize=4, breaklines=true]{c++}{code/8.cpp}
