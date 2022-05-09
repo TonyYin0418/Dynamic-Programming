@@ -3,28 +3,21 @@
 % 中英文摘要和关键字
 
 \begin{abstract}
-	本文总结了一类以集合信息为状态、状态总数为指数级的动态规划的状态设计方法，即状态压缩法与一类有关于数位的计数类动态规划问题，即数位动态规划。对于一些时间复杂度在指数级上大于空间复杂度的动态规划，本文介绍了单调队列优化，斜率优化，四边形不等式优化及CDQ分治优化四种优化方式，可以在较大程度上使时间复杂度靠近空间复杂度。
+
+	本文研究了复杂动态规划模型及其优化。首先，研究了状态压缩动态规划，这是一类以集合信息为状态，以状态总数为指数级的问题；之后，还研究了技巧性较强的数位动态规划。除此之外，本文研究了四种动态规划的优化方式，包括单调队列优化、斜率优化、四边形不等式优化及CDQ分治优化，这些方法可以降低原有算法的时间复杂度，使其趋近空间复杂度。研究过程中，参考了NOI国家集训队的有关论文，具体分析了算法竞赛中的真实例题，并用C++语言进行了完整的代码实现。
 
   % 关键词用“英文逗号”分隔，输出时会自动处理为正确的分隔符
   \thusetup{
-    keywords = {动态规划, 状态压缩, 单调队列, 四边形不等式, CDQ分治},
+    keywords = {动态规划, 算法，数据结构，状态压缩, 分治},
   }
 \end{abstract}
 
 \begin{abstract*}
-  An abstract of a dissertation is a summary and extraction of research work and contributions.
-  Included in an abstract should be description of research topic and research objective, brief introduction to methodology and research process, and summary of conclusion and contributions of the research.
-  An abstract should be characterized by independence and clarity and carry identical information with the dissertation.
-  It should be such that the general idea and major contributions of the dissertation are conveyed without reading the dissertation.
 
-  An abstract should be concise and to the point.
-  It is a misunderstanding to make an abstract an outline of the dissertation and words “the first chapter”, “the second chapter” and the like should be avoided in the abstract.
-
-  Keywords are terms used in a dissertation for indexing, reflecting core information of the dissertation.
-  An abstract may contain a maximum of 5 keywords, with semi-colons used in between to separate one another.
+	This paper studies complex dynamic programming models and their optimization. Firstly, state-compressed dynamic programming is studied, which is a kind of problem that takes the collective information as the state and the total number of states as the exponential level; after that, the digital dynamic programming with strong skills is also studied. In addition, this paper studies four optimization methods of dynamic programming, including monotonic queue optimization, slope optimization, quadrilateral inequality optimization and CDQ divide-and-conquer optimization. These methods can reduce the time complexity of the original algorithm and make it approach the space complexity. In the research process, referring to the relevant papers of the NOI national training team, the real examples in the algorithm competition are analyzed in detail, and the complete code implementation is carried out in C++ language.
 
   % Use comma as separator when inputting
   \thusetup{
-    keywords* = {Dynamic Programming, State Compression, Monotonic Queue, Quadrilateral Inequality, CDQ divide-conquer},
+    keywords* = {Dynamic Programming, Algorithm, Data Structrue, State Compression, Divide and Conquer},
   }
 \end{abstract*}
