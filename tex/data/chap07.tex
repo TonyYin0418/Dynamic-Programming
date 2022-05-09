@@ -1,15 +1,15 @@
 % !TeX root = ../thuthesis-example.tex
 
-\chapter{CDQ 分治优化 DP}
+\chapter{CDQ 分治优化动态规划}
 
 \section{CDQ 分治}
 
 CDQ
-分治最早为陈丹琦在《从\textless cash\textgreater 谈一类分治算法的应用》中整理的，因此以
+分治最早为陈丹琦在《从\textless cash\textgreater 谈一类分治算法的应用》\cite{CDQ} 中整理的，因此以
 CDQ 命名。
 
 陈丹琦本人整理的 CDQ
-分治应用方法主要为先将在线维护的问题转换为离线问题，并添加一个操作时间的维度，再对高维的偏序问题进行分治处理。后来引申的
+分治应用方法 \cite{CDQ2} 主要为先将在线维护的问题转换为离线问题，并添加一个操作时间的维度，再对高维的偏序问题进行分治处理。后来引申的
 CDQ
 分治应用范围则包括了可离线的高维偏序问题以及转移包括高维偏序条件的动态规划问题。
 
@@ -22,8 +22,10 @@ CDQ
 给定一个长度为 \(n\) 的排列
 \(a\)，其中有若干位置上的数字已经确定了，剩下位置上的数字不确定。
 
-你需要钦定未被确定的位置上的数字，使得得到的排列的最长上升子序列（LIS，Longest
-Increasing Subsequence）长度尽量长。试求出这个最长长度。
+需要钦定未被确定的位置上的数字，使得得到的排列的最长上升子序列（Longest
+Increasing Subsequence, LIS）长度尽量长。
+
+试求出这个最长长度。
 
 数据范围：\(n\leq 10^5\).
 
@@ -94,7 +96,9 @@ f(i)=\max_{p_j < p_i}\{f(j)+\min\{\operatorname{cnt}[i]-\operatorname{cnt}[j],\o
 给定 \(n\) 个柱子，每个柱子用 \((h_i,w_i)\) 描述。拆除第 \(i\)
 根柱子的代价为 \(w_i\)。在 \(i,j\) 之间架桥的代价为
 \((h_i-h_j)^2\)，同时还需要拆除 \([i+1,j-1]\)
-之间的所有柱子。求通过桥梁把 \(1\) 和 \(n\) 连通的最小代价。
+之间的所有柱子。
+
+求通过桥梁把 \(1\) 和 \(n\) 连通的最小代价。
 
 数据范围：\(2\leq n\leq 10^5\)，\(0\leq h_i,|w_i|\leq 10^6\).
 
@@ -103,12 +107,16 @@ f(i)=\max_{p_j < p_i}\{f(j)+\min\{\operatorname{cnt}[i]-\operatorname{cnt}[j],\o
 不妨设 \(\operatorname{dp}[i]\) 为通过桥梁将 \(1\) 和 \(i\)
 联通的最小代价，\(s_i=\sum_{i\in[1,i]}w_i\)，不难得到 \[
 \operatorname{dp}[i]=\min_{j < i}(dp[j]+s_{i-1}-s_j+(h_i-h_j)^2)
-\] 将 \(\min\) 去掉可以得到 \[
+\]
+
+将 \(\min\) 去掉可以得到 \[
 (\operatorname{dp}[j]-s_j+h_j^2)=h_i\times(2h_j)-(s_{i-1}+h_i^2)+\operatorname{dp}[i]
 \]
 
 发现能斜率优化，然而直接进行斜率优化需要满足斜率 \(2h_j\) 单调，因此考虑
-CDQ 分治。具体来讲，以第一维为下标，计算 \(\operatorname{cdq}(l,r)\)
+CDQ 分治。
+
+具体来讲，以第一维为下标，计算 \(\operatorname{cdq}(l,r)\)
 时，令 \(\operatorname{mid}=\lfloor\frac{l+r}{2}\rfloor\)，对
 \([l,\operatorname{mid}]\) 中的下标 \(i\) 直接计算出由
 \((\operatorname{dp}[i]-s_i+h_i^2,h_i)\) 构成的下凸包

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  9 MAY 2022 21:44
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.11.18)  9 MAY 2022 22:59
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1628,30 +1628,106 @@ runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuth
 
  (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg)) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap06.tex [19]
 第6章
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 3.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 3.
+
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 16.0617pt on input line 3.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 14.05399pt on input line 3.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 10.54048pt on input line 3.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 16.05827pt on input line 3.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 14.05098pt on input line 3.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 10.53824pt on input line 3.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 56.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 56.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 56.
+LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 56.
 [20
 
 ]
-Overfull \hbox (1.43492pt too wide) detected at line 83
+Overfull \hbox (1.43492pt too wide) detected at line 89
 []
  []
 
 
-Overfull \hbox (38.63919pt too wide) detected at line 89
+Overfull \hbox (38.63919pt too wide) detected at line 95
 [][][][][][] [] [][] [] [][][] [] [][][][][] [] [][][][][][][][] [] [][][] [] [][][][] [] [][] [] [][][][] [] [] [][][] [] [][][][] [] [][][][][] [] [][][] [] [][][][][] [] [][][] [] [][] [][][][] 
  []
 
 
-Overfull \hbox (38.63919pt too wide) detected at line 91
+Overfull \hbox (38.63919pt too wide) detected at line 97
 [][][][][][][] [] [][][] [] [][][][] [] [][] [] [][][][][][][][] [] [][][] [] [][][][][] [] [][][][] [][][] [] [][][][] [] [][][][][] [] [][][] [] [][][][] [] [][] [] [][][] [] [][] [] [] [][][]
  []
 
 
-Overfull \hbox (60.40894pt too wide) detected at line 97
+Overfull \hbox (60.40894pt too wide) detected at line 103
 [][][] [] [][][][] [] [][] [] [][][] [] [][][][][] [] [][][][] [] [] [][] [] [][][] [] [][] [][] [] [][][] [] [][][][][] [] [][][] [] [][][][] [] [][] [] [][][][] [][] [] [][][] [] [][] [] [] [][]
  []
 
 [21]
-Overfull \hbox (22.5741pt too wide) detected at line 122
+Overfull \hbox (22.5741pt too wide) detected at line 129
 [][][] [] [][][][][] [] [][][] [] [][][][] [] [][] [] [][][] [] [][][][] [] [][] [] [][][] [] [][][][][][] [][][][][][][] [] [][][] [] [][][][][] [] [][][][][][][] [] [][][] [] [][][][][]
  []
 
@@ -1668,7 +1744,7 @@ runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuth
 ]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/9.cpp)...executed.
 
- (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg) [27]
+ (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [27])
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o thuthesis-example.out.pyg code/10.cpp)...executed.
 
  (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.out.pyg [28]
@@ -1680,12 +1756,8 @@ LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
 (Font)              scaled to size 5.95253pt on input line 59.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
 (Font)              scaled to size 6.52505pt on input line 59.
-LaTeX Font Info:    Font shape `TU/NewCMMath-Book(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 59.
 LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
 (Font)              scaled to size 6.52367pt on input line 59.
-LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 59.
 )) (c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/data/chap08.tex [29]
 第8章
 ) [30
@@ -1699,17 +1771,17 @@ LaTeX Font Info:    Font shape `TU/NewCMMath-Book(3)/m/n' will be
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `thuthesis-example.out' has not changed.
-(rerunfilecheck)             Checksum: 6D6F963FB4268A5538FCA443A0972216;9597.
+(rerunfilecheck)             Checksum: 6CF34D29006ED6E63F54CD72C31AFC60;9717.
 runsystem(del thuthesis-example.out.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 31240 strings out of 476919
- 632634 string characters out of 5825423
- 1147139 words of memory out of 5000000
- 50565 multiletter control sequences out of 15000+600000
- 411910 words of font info for 203 fonts, out of 8000000 for 9000
+ 31350 strings out of 476919
+ 637177 string characters out of 5825423
+ 1152264 words of memory out of 5000000
+ 50641 multiletter control sequences out of 15000+600000
+ 414853 words of font info for 240 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  114i,17n,133p,1475b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv (37 pages, 920624 bytes).
+Output written on c:/Users/TonyYin/Desktop/Github/Dynamic-Programming/tex/thuthesis-example.xdv (37 pages, 932064 bytes).
